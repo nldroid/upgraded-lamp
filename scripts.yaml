@@ -1,0 +1,14 @@
+television_on:
+  alias: Television
+  sequence:
+    - service: remote.turn_on
+      entity_id: remote.huiskamer
+      data:
+        activity: "11036639"
+jukebox_on:
+  alias: Jukebox
+  sequence:
+    - service: remote.turn_on
+      entity_id: remote.huiskamer
+      data:
+        activity: 23982026

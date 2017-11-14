@@ -1,0 +1,143 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Home
+  # Location required to calculate the time the sun rises and sets
+  latitude: !secret homeassistant_latitude
+  longitude: !secret homeassistant_longitude
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: 0
+  # metric for Metric, imperial for Imperial
+  unit_system: metric
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: Europe/Amsterdam
+  # Customization file
+  customize: !include customize.yaml
+
+recorder:
+  purge_interval: 2
+  purge_keep_days: 5
+  db_url: !secret recorder_db_url
+  exclude:
+    domains:
+      - automation
+      - weblink
+      - updater
+    entities:
+      - sun.sun # Don't record sun data
+      - sensor.last_boot # Comes from 'systemmonitor' sensor platform
+      - sensor.date
+
+history:
+  include:
+    entities:
+      - sensor.sensebender_micro_1_1
+      - sensor.sensebender_micro_1_2
+      - sensor.sensebender_micro_2_1
+      - sensor.sensebender_micro_2_2
+
+history_graph:
+  gr1:
+    name: Lights Graph
+    entities:
+      - sensor.sensebender_micro_1_1
+      - sensor.sensebender_micro_2_1
+    hours_to_show: 240
+    refresh: 60
+
+google_assistant:
+  project_id: !secret google_assistant_project_id
+  client_id: !secret google_assistant_client_id
+  access_token: !secret google_assistant_access_token
+  expose_by_default: false
+  exposed_domains:
+    - switch
+    - script
+    - light
+#    - group
+
+mysensors:
+  gateways:
+    - device: '127.0.0.1'
+      persistence_file: '/home/homeassistant/.homeassistant/mysensors/mysensors.json'
+      tcp_port: 5003
+  optimistic: false
+  persistence: true
+  retain: true
+  version: '2.0'
+
+# Show links to resources in log and frontend
+#introduction:
+
+# Enables the frontend
+frontend:
+
+# Enables configuration UI
+config:
+
+http:
+  # Secrets are defined in the file secrets.yaml
+  # api_password: !secret http_password
+  # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+  # base_url: example.duckdns.org:8123
+
+# Checks for available updates
+# Note: This component will send some information about your system to
+# the developers to assist with development of Home Assistant.
+# For more information, please see:
+# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
+updater:
+  # Optional, allows Home Assistant developers to focus on popular components.
+  # include_used_components: true
+
+# Discover some devices automatically
+discovery:
+#  ignore:
+#    - philips_hue
+
+# View all events in a logbook
+logbook:
+
+# Enables a map showing the location of tracked devices
+map:
+
+# Track the sun
+sun:
+
+# Weather prediction
+sensor:
+#  - platform: yr
+  - platform: template
+    sensors:
+      huiskamer:
+        value_template: '{{ states.remote.huiskamer.attributes.current_activity }}'
+  - platform: miflora
+    mac: 'C4:7C:8D:64:3B:41'
+    name: Flower 1
+    force_update: false
+    median: 3
+    monitored_conditions:
+      - moisture
+      - light
+      - temperature
+      - conductivity
+      - battery
+
+# Text to speech
+tts:
+  - platform: google
+
+#rflink:
+#  port: /dev/serial/by-id/usb-Arduino__www.arduino.cc__0042_55639313433351717151-if00
+
+light:
+  - platform: hue
+    host: 192.168.86.75
+    filename: phue.conf
+
+zwave:
+  usb_path: /dev/zwave
+  network_key: !secret zwave_network_key
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml

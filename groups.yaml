@@ -1,0 +1,58 @@
+  default_view:
+    name: Woonkamer
+    view: yes
+    entities:
+      - group.woonkamer_lights
+      - group.woonkamer_power
+      - media_player.woonkamer  
+      - group.power_usage
+      - group.harmony_state
+      - group.temperatuur
+      - group.plant
+
+  studeerkamer:
+    name: Studeerkamer
+    view: yes
+    entities:
+      - media_player.studeerkamer
+
+  woonkamer_lights:
+    name: Woonkamer lichten  
+    entities:
+      - light.hue_white_lamp_2
+      - light.hue_ambiance_spot_1
+      - switch.fibaro_plug_switch
+
+  woonkamer_power:
+    name: Power
+    entities:
+      - switch.aeotec_zw096_smart_switch_6_switch
+
+  power_usage:
+    name: Power usage
+    entities:
+      - sensor.aeotec_zw096_smart_switch_6_power 
+      - sensor.fibaro_plug_power
+
+  harmony_state:
+    name: Harmony state
+    entities:
+      - sensor.huiskamer
+      - script.television_on
+  
+  temperatuur:
+    name: Temperatuur
+    entities:
+      - sensor.sensebender_micro_1_1
+      - sensor.sensebender_micro_1_2
+      - sensor.sensebender_micro_2_1
+      - sensor.sensebender_micro_2_2
+
+  plant:
+    name: Plant
+    entities:
+      - sensor.flower_1_battery
+      - sensor.flower_1_conductivity
+      - sensor.flower_1_light_intensity
+      - sensor.flower_1_moisture
+      - sensor.flower_1_temperature

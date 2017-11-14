@@ -1,0 +1,34 @@
+media_player.woonkamer:
+  friendly_name: Squeezebox Woonkamer
+configurator.philips_hue:
+  hidden: true
+  homebridge_hidden: true
+switch.aeotec_zw096_smart_switch_6_switch:
+  friendly_name: Main power
+  google_assistant: true
+sensor.huiskamer:
+  friendly_name: Huidige activiteit
+switch.fibaro_system_fgwpef_wall_plug_switch:
+  google_assistant: false
+sensor.sensebender_micro_1_1:
+  friendly_name: Temperatuur huiskamer
+sensor.sensebender_micro_1_2:
+  friendly_name: Luchtvochtigheid huiskamer
+sensor.sensebender_micro_2_1:
+  friendly_name: Temperatuur buiten
+sensor.sensebender_micro_2_2:
+  friendly_name: Luchtvochtigheid buiten
+switch.fibaro_plug_switch:
+  friendly_name: Tower lamp
+  google_assistant: true
+light.hue_ambiance_spot_1:
+  friendly_name: Bol lamp
+  google_assistant: true
+light.hue_white_lamp_2:
+  friendly_name: Arch
+  google_assistant: true
+script.television_on:
+  google_assistant: true
+script.jukebox_on:
+  google_assistant: true
+
