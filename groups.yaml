@@ -7,6 +7,7 @@
       - media_player.woonkamer  
       - group.power_usage
       - group.harmony_state
+      - group.vu_duo2
       - group.temperatuur
       - group.plant
 
@@ -56,3 +57,8 @@
       - sensor.flower_1_light_intensity
       - sensor.flower_1_moisture
       - sensor.flower_1_temperature
+
+  vu_duo2:
+    name: Vu Duo2
+    entities:
+      - media_player.vu_duo2

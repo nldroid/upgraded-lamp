@@ -31,4 +31,7 @@ script.television_on:
   google_assistant: true
 script.jukebox_on:
   google_assistant: true
-
+sensor.aeotec_zw096_smart_switch_6_power:
+  friendly_name: Televisiekast
+sensor.fibaro_plug_power:
+  friendly_name: Tower lamp
