@@ -3,5 +3,6 @@
 !scenes
 !.gitignore
 !mysensors/
+!mysensors/*
 secrets.yaml
 known_devices.yaml
