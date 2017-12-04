@@ -12,3 +12,22 @@ jukebox_on:
       entity_id: remote.huiskamer
       data:
         activity: 23982026
+music_on:
+  alias: Music
+  sequence:
+    - service: remote.turn_on
+      entity_id: remote.huiskamer
+      data:
+        activity: "11036640"
+harmony_off:
+  alias: 'Harmony off'
+  sequence:
+    - service: remote.turn_on
+      entity_id: remote.huiskamer
+      data:
+        activity: "-1"
+christmas_on:
+  alias: Christmas
+  sequence:
+    - service: automation.trigger
+      entity_id: automation.kerstlampjes_aan_voor_zonsondergang

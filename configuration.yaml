@@ -13,6 +13,27 @@ homeassistant:
   # Customization file
   customize: !include customize.yaml
 
+mqtt:
+  #broker: localhost
+  #port: 1883
+  discovery: true
+  discovery_prefix: homeassistant
+
+#logger:
+#  default: error
+#  logs:
+#    homeassistant.components.mqtt: debug
+
+#input_select:
+#  harmony:
+#    name: Harmony
+#    options:
+#      - PowerOff
+#      - naar muziek luisteren
+#      - tv kijken
+#      - Jukebox
+#    icon: mdi:monitor
+
 recorder:
   purge_interval: 2
   purge_keep_days: 5
@@ -34,6 +55,7 @@ history:
       - sensor.sensebender_micro_1_2
       - sensor.sensebender_micro_2_1
       - sensor.sensebender_micro_2_2
+      - sensor.co2
 
 history_graph:
   gr1:
@@ -41,6 +63,7 @@ history_graph:
     entities:
       - sensor.sensebender_micro_1_1
       - sensor.sensebender_micro_2_1
+      - sensor.co2
     hours_to_show: 240
     refresh: 60
 
@@ -52,11 +75,16 @@ media_player:
 
   - platform: enigma
     host: 192.168.86.25
+  - platform: cast
+    host: 192.168.86.30
+    name: Google Home Huiskamer
 
 google_assistant:
   project_id: !secret google_assistant_project_id
   client_id: !secret google_assistant_client_id
   access_token: !secret google_assistant_access_token
+  api_key: !secret google_assistant_api_key
+  agent_user_id: !secret google_assistant_agent_user_id
   expose_by_default: false
   exposed_domains:
     - switch
@@ -100,21 +128,29 @@ updater:
 
 # Discover some devices automatically
 discovery:
-#  ignore:
-#    - philips_hue
 
 # View all events in a logbook
 logbook:
 
 # Enables a map showing the location of tracked devices
-map:
+#map:
 
 # Track the sun
 sun:
 
-# Weather prediction
 sensor:
+
+# Weather prediction
 #  - platform: yr
+
+  - platform: mqtt
+    state_topic: '/esp_easy/co2_sensor/Temperature'
+    name: 'Temperatuur'
+    unit_of_measurement: '°C'
+  - platform: mqtt
+    state_topic: '/esp_easy/co2_sensor/PPM'
+    name: 'Co2'
+    unit_of_measurement: 'ppm'
   - platform: template
     sensors:
       huiskamer:
@@ -130,6 +166,13 @@ sensor:
       - temperature
       - conductivity
       - battery
+  - platform: template
+    sensors:
+      huiskamer_hum:
+        friendly_name: "Luchtvochtigheid huiskamer"
+        unit_of_measurement: '%'
+        value_template: "{{ states.sensor.sensebender_micro_1_2.state | int - 10 }}"
+
 
 # Text to speech
 tts:
@@ -146,6 +189,9 @@ light:
 zwave:
   usb_path: /dev/zwave
   network_key: !secret zwave_network_key
+  device_config:
+    sensor.aeotec_zw096_smart_switch_6_power:
+      polling_intensity: 1
 
 group: !include groups.yaml
 automation: !include automations.yaml

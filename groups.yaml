@@ -3,13 +3,15 @@
     view: yes
     entities:
       - group.woonkamer_lights
-      - group.woonkamer_power
+      - group.televisiekast
       - media_player.woonkamer  
-      - group.power_usage
       - group.harmony_state
       - media_player.duo2
+      - media_player.jukebox
       - group.temperatuur
       - group.plant
+      - group.kerst
+      - group.slaapkamer_co2
 
   studeerkamer:
     name: Studeerkamer
@@ -23,11 +25,13 @@
       - light.hue_white_lamp_2
       - light.hue_ambiance_spot_1
       - switch.fibaro_plug_switch
+      - sensor.fibaro_plug_power
 
-  woonkamer_power:
-    name: Power
+  televisiekast:
+    name: Televisiekast
     entities:
       - switch.aeotec_zw096_smart_switch_6_switch
+      - sensor.aeotec_zw096_smart_switch_6_power
 
   power_usage:
     name: Power usage
@@ -36,16 +40,19 @@
       - sensor.fibaro_plug_power
 
   harmony_state:
-    name: Harmony state
+    name: Harmony
     entities:
       - sensor.huiskamer
       - script.television_on
+      - script.music_on
+      - script.jukebox_on
+      - script.harmony_off
   
   temperatuur:
     name: Temperatuur
     entities:
       - sensor.sensebender_micro_1_1
-      - sensor.sensebender_micro_1_2
+      - sensor.huiskamer_hum
       - sensor.sensebender_micro_2_1
       - sensor.sensebender_micro_2_2
 
@@ -62,3 +69,13 @@
     name: Vu Duo2
     entities:
       - media_player.vu_duo2
+
+  kerst:
+    name: Kerst
+    entities: switch.neo_coolcam_power_plug_12a_switch
+
+  slaapkamer_co2:
+    name: Slaapkamer
+    entities:
+      - sensor.co2
+      - sensor.temperatuur
