@@ -35,11 +35,15 @@ sensor.aeotec_zw096_smart_switch_6_power:
   friendly_name: Televisiekast
 sensor.fibaro_plug_power:
   friendly_name: Tower lamp
-switch.neo_coolcam_power_plug_12a_switch:
-  friendly_name: Lampjes buiten
+switch.lampjes_buiten_switch:
+  friendly_name: Balcony lights
+  google_assistant: 'true'
 script.music_on:
   google_assistant: 'true'
 script.harmony_off:
   google_assistant: 'true'
 script.christmas_on:
+  google_assistant: 'true'
+switch.kerstboom_switch:
+  friendly_name: Christmas tree
   google_assistant: 'true'

@@ -8,16 +8,29 @@
       - group.harmony_state
       - media_player.duo2
       - media_player.jukebox
-      - group.temperatuur
-      - group.plant
+      - group.woonkamer_temperatuur
       - group.kerst
-      - group.slaapkamer_co2
+#      - group.all_co2
+
+  planten:
+    name: Planten
+    view: yes
+    entities:
+      - group.plant
+      - group.picea
+
+  slaapkamer:
+    name: Slaapkamer
+    view: yes
+    entities:
+      - group.slaapkamer_temperatuur
 
   studeerkamer:
     name: Studeerkamer
     view: yes
     entities:
       - media_player.studeerkamer
+      - group.studeerkamer_temperatuur
 
   woonkamer_lights:
     name: Woonkamer lichten  
@@ -49,21 +62,30 @@
       - script.harmony_off
   
   temperatuur:
-    name: Temperatuur
+    name: Temperatuur en Co2
     entities:
       - sensor.sensebender_micro_1_1
       - sensor.huiskamer_hum
+      - sensor.co2_woonkamer
       - sensor.sensebender_micro_2_1
-      - sensor.sensebender_micro_2_2
 
   plant:
-    name: Plant
+    name: Dracaena marginata
     entities:
-      - sensor.flower_1_battery
-      - sensor.flower_1_conductivity
-      - sensor.flower_1_light_intensity
-      - sensor.flower_1_moisture
-      - sensor.flower_1_temperature
+      - sensor.dracaena_marginata_battery
+      - sensor.dracaena_marginata_conductivity
+      - sensor.dracaena_marginata_light_intensity
+      - sensor.dracaena_marginata_moisture
+      - sensor.dracaena_marginata_temperature
+
+  picea:
+    name: Picea abies
+    entities:
+      - sensor.picea_abies_battery
+      - sensor.picea_abies_conductivity
+      - sensor.picea_abies_light_intensity
+      - sensor.picea_abies_moisture
+      - sensor.picea_abies_temperature
 
   vu_duo2:
     name: Vu Duo2
@@ -72,10 +94,34 @@
 
   kerst:
     name: Kerst
-    entities: switch.neo_coolcam_power_plug_12a_switch
+    entities: 
+      - switch.kerstboom_switch
+      - switch.lampjes_buiten_switch
 
-  slaapkamer_co2:
-    name: Slaapkamer
+  woonkamer_temperatuur:
+    name: Temperatuur en Co2
     entities:
-      - sensor.co2
-      - sensor.temperatuur
+      - sensor.sensebender_micro_1_1
+      - sensor.huiskamer_hum
+      - sensor.co2_woonkamer
+      - sensor.sensebender_micro_2_1
+
+  slaapkamer_temperatuur:
+    name: Temperatuur en Co2
+    entities:
+      - sensor.co2_slaapkamer
+      - sensor.temperatuur_slaapkamer
+
+  studeerkamer_temperatuur:
+    name: Temperatuur en Co2
+    entities:
+      - sensor.co2_studeerkamer
+      - sensor.temperatuur_studeerkamer
+
+  all_co2:
+    name: Co2
+    entities:
+      - sensor.co2_slaapkamer
+      - sensor.co2_woonkamer
+      - sensor.co2_studeerkamer
+
