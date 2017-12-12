@@ -17,6 +17,7 @@
   state_topic: '/esp_easy_slaapkamer/bme280/Pressure'
   name: 'Luchtdruk slaapkamer'
   unit_of_measurement: 'hPa'
+
 - platform: mqtt
   state_topic: '/esp_easy_woonkamer/co2_sensor/PPM'
   name: 'Co2 woonkamer'
@@ -33,6 +34,7 @@
   state_topic: '/esp_easy_woonkamer/bme280/Pressure'
   name: 'Luchtdruk woonkamer'
   unit_of_measurement: 'hPa'
+
 - platform: mqtt
   state_topic: '/esp_easy_studeerkamer/co2_sensor/PPM'
   name: 'Co2 studeerkamer'
