@@ -138,71 +138,6 @@ logbook:
 # Track the sun
 sun:
 
-sensor:
-
-# Weather prediction
-#  - platform: yr
-
-  - platform: mqtt
-    state_topic: '/esp_easy_slaapkamer/co2_sensor/Temperature'
-    name: 'Temperatuur slaapkamer'
-    unit_of_measurement: '°C'
-  - platform: mqtt
-    state_topic: '/esp_easy_slaapkamer/co2_sensor/PPM'
-    name: 'Co2 slaapkamer'
-    unit_of_measurement: 'ppm'
-  - platform: mqtt
-    state_topic: '/esp_easy_woonkamer/co2_sensor/Temperature'
-    name: 'Temperatuur woonkamer'
-    unit_of_measurement: '°C'
-  - platform: mqtt
-    state_topic: '/esp_easy_woonkamer/co2_sensor/PPM'
-    name: 'Co2 woonkamer'
-    unit_of_measurement: 'ppm'
-  - platform: mqtt
-    state_topic: '/esp_easy_studeerkamer/co2_sensor/Temperature'
-    name: 'Temperatuur studeerkamer'
-    unit_of_measurement: '°C'
-  - platform: mqtt
-    state_topic: '/esp_easy_studeerkamer/co2_sensor/PPM'
-    name: 'Co2 studeerkamer'
-    unit_of_measurement: 'ppm'
-
-  - platform: template
-    sensors:
-      huiskamer:
-        value_template: '{{ states.remote.huiskamer.attributes.current_activity }}'
-
-  - platform: miflora
-    mac: 'C4:7C:8D:64:3B:41'
-    name: Dracaena marginata
-    force_update: false
-    median: 3
-    monitored_conditions:
-      - moisture
-      - light
-      - temperature
-      - conductivity
-      - battery
-  - platform: miflora
-    mac: 'C4:7C:8D:64:45:97'
-    name: Picea abies
-    force_update: false
-    median: 3
-    monitored_conditions:
-      - moisture
-      - light
-      - temperature
-      - conductivity
-      - battery
-
-  - platform: template
-    sensors:
-      huiskamer_hum:
-        friendly_name: "Luchtvochtigheid huiskamer"
-        unit_of_measurement: '%'
-        value_template: "{{ states.sensor.sensebender_micro_1_2.state | int - 10 }}"
-
 # Text to speech
 tts:
   - platform: google
@@ -222,6 +157,7 @@ zwave:
     sensor.aeotec_zw096_smart_switch_6_power:
       polling_intensity: 1
 
+sensor: !include sensors.yaml
 group: !include groups.yaml
 automation: !include automations.yaml
 script: !include scripts.yaml
