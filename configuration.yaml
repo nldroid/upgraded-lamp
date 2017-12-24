@@ -50,6 +50,10 @@ logger:
 
 influxdb:
   host: !secret influxdb_host
+  default_measurement: state
+  include:
+    domains:
+      - sensor 
 
 history:
   include:
