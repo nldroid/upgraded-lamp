@@ -19,10 +19,10 @@ mqtt:
   discovery: true
   discovery_prefix: homeassistant
 
-#logger:
-#  default: error
-#  logs:
-#    homeassistant.components.mqtt: debug
+logger:
+  default: error
+  logs:
+    homeassistant.components.zwave: critical
 
 #input_select:
 #  harmony:
