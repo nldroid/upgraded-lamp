@@ -34,19 +34,22 @@ logger:
 #      - Jukebox
 #    icon: mdi:monitor
 
-recorder:
-  purge_interval: 2
-  purge_keep_days: 5
-  db_url: !secret recorder_db_url
-  exclude:
-    domains:
-      - automation
-      - weblink
-      - updater
-    entities:
-      - sun.sun # Don't record sun data
-      - sensor.last_boot # Comes from 'systemmonitor' sensor platform
-      - sensor.date
+#recorder:
+#  purge_interval: 2
+#  purge_keep_days: 5
+#  db_url: !secret recorder_db_url
+#  exclude:
+#    domains:
+#      - automation
+#      - weblink
+#      - updater
+#    entities:
+#      - sun.sun # Don't record sun data
+#      - sensor.last_boot # Comes from 'systemmonitor' sensor platform
+#      - sensor.date
+
+influxdb:
+  host: !secret influxdb_host
 
 history:
   include:
