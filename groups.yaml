@@ -65,8 +65,9 @@
     name: Temperatuur en Co2
     entities:
       - sensor.sensebender_micro_1_1
-      - sensor.huiskamer_hum
+      - sensor.luchtvochtigheid_woonkamer
       - sensor.co2_woonkamer
+      - sensor.luchtdruk_woonkamer
       - sensor.sensebender_micro_2_1
 
   plant:
@@ -102,21 +103,26 @@
     name: Temperatuur en Co2
     entities:
       - sensor.sensebender_micro_1_1
-      - sensor.huiskamer_hum
+      - sensor.luchtvochtigheid_woonkamer
       - sensor.co2_woonkamer
+      - sensor.luchtdruk_woonkamer
       - sensor.sensebender_micro_2_1
 
   slaapkamer_temperatuur:
     name: Temperatuur en Co2
     entities:
-      - sensor.co2_slaapkamer
       - sensor.temperatuur_slaapkamer
+      - sensor.luchtvochtigheid_slaapkamer
+      - sensor.co2_slaapkamer
+      - sensor.luchtdruk_studeerkamer
 
   studeerkamer_temperatuur:
     name: Temperatuur en Co2
     entities:
-      - sensor.co2_studeerkamer
       - sensor.temperatuur_studeerkamer
+      - sensor.luchtvochtigheid_studeerkamer
+      - sensor.co2_studeerkamer
+      - sensor.luchtdruk_studeerkamer
 
   all_co2:
     name: Co2
