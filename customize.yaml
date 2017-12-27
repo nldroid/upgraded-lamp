@@ -77,3 +77,6 @@ sensor.lampjes_buiten_alarm_level:
 sensor.lampjes_buiten_alarm_type:
   ignored: 'true'
   hidden: true
+sensor.fibaro_plug_exporting:
+  hidden: true
+  ignored: 'true'
