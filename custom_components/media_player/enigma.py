@@ -147,10 +147,11 @@ class EnigmaDevice(MediaPlayerDevice):
             reference = soup.e2servicereference.renderContents().decode('UTF8')
 
             eventtitle = 'N/A'
-            if reference != 'N/A':
-                xml = self.request_call('/web/epgservicenow?sRef=' + reference)
-                soup = BeautifulSoup(xml, 'html.parser')
-                eventtitle = soup.e2eventtitle.renderContents().decode('UTF8')
+# RV: Zit een error in het volgende als de XML iets oplevert wat hij niet verwacht. Leeg misschien?
+#            if reference != 'N/A':
+#                xml = self.request_call('/web/epgservicenow?sRef=' + reference)
+#                soup = BeautifulSoup(xml, 'html.parser')
+#                eventtitle = soup.e2eventtitle.renderContents().decode('UTF8')
 
             volume_xml = self.request_call('/web/vol')
             soup = BeautifulSoup(volume_xml, 'html.parser')
