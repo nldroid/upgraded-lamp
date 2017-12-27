@@ -47,3 +47,33 @@ script.christmas_on:
 switch.kerstboom_switch:
   friendly_name: Christmas tree
   google_assistant: 'true'
+sensor.kerstboom_exporting:
+  ignored: 'true'
+  hidden: true
+sensor.kerstboom_power_management:
+  ignored: 'true'
+  hidden: true
+sensor.kerstboom_sourcenodeid:
+  ignored: 'true'
+  hidden: true
+sensor.kerstboom_alarm_level:
+  ignored: 'true'
+  hidden: true
+sensor.kerstboom_alarm_type:
+  ignored: 'true'
+  hidden: true
+sensor.lampjes_buiten_exporting:
+  ignored: 'true'
+  hidden: true
+sensor.lampjes_buiten_power_management:
+  ignored: 'true'
+  hidden: true
+sensor.lampjes_buiten_sourcenodeid:
+  ignored: 'true'
+  hidden: true
+sensor.lampjes_buiten_alarm_level:
+  ignored: 'true'
+  hidden: true
+sensor.lampjes_buiten_alarm_type:
+  ignored: 'true'
+  hidden: true
