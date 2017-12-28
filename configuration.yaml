@@ -80,8 +80,8 @@ media_player:
 #     name: Vu Duo2
 #     icon: mdi:satellite-variant
 
-  - platform: enigma
-    host: 192.168.86.25
+#  - platform: enigma
+#    host: 192.168.86.25
   - platform: cast
     host: 192.168.86.30
     name: Google Home Huiskamer
