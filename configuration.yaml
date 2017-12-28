@@ -47,6 +47,17 @@ recorder:
       - sun.sun # Don't record sun data
       - sensor.last_boot # Comes from 'systemmonitor' sensor platform
       - sensor.date
+      - sensor.fibaro_plug_exporting
+      - sensor.kerstboom_exporting
+      - sensor.lampjes_buiten_exporting
+      - sensor.kerstboom_power_management
+      - sensor.kerstboom_alarm_level
+      - sensor.kerstboom_alarm_type
+      - sensor.lampjes_buiten_power_management
+      - sensor.lampjes_buiten_alarm_level
+      - sensor.lampjes_buiten_alarm_type
+      - sensor.kerstboom_sourcenodeid
+      - sensor.lampjes_buiten_sourcenodeid
 
 influxdb:
   host: !secret influxdb_host
