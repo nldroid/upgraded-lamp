@@ -14,10 +14,23 @@ homeassistant:
   customize: !include customize.yaml
 
 mqtt:
-  #broker: localhost
-  #port: 1883
-  discovery: true
-  discovery_prefix: homeassistant
+  broker: localhost
+  port: 1883
+#  discovery: true
+#  discovery_prefix: homeassistant
+#  embedded:
+#    auth:
+#      allow-anonymous: true
+
+switch:
+  - platform: mqtt
+    name: "Ventilator"
+    state_topic: "stat/sonoff-ventilator/POWER"
+    command_topic: "cmnd/sonoff-ventilator/POWER"
+    qos: 1
+    payload_on: "ON"
+    payload_off: "OFF"
+    retain: true
 
 logger:
   default: error
