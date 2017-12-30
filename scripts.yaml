@@ -1,33 +1,35 @@
 television_on:
   alias: Television
   sequence:
-    - service: remote.turn_on
-      entity_id: remote.huiskamer
-      data:
-        activity: "11036639"
+  - service: remote.turn_on
+    entity_id: remote.huiskamer
+    data:
+      activity: '11036639'
 jukebox_on:
   alias: Jukebox
   sequence:
-    - service: remote.turn_on
-      entity_id: remote.huiskamer
-      data:
-        activity: 23982026
+  - service: remote.turn_on
+    entity_id: remote.huiskamer
+    data:
+      activity: 23982026
 music_on:
   alias: Music
   sequence:
-    - service: remote.turn_on
-      entity_id: remote.huiskamer
-      data:
-        activity: "11036640"
+  - service: remote.turn_on
+    entity_id: remote.huiskamer
+    data:
+      activity: '11036640'
 harmony_off:
-  alias: 'Harmony off'
+  alias: Harmony off
   sequence:
-    - service: remote.turn_on
-      entity_id: remote.huiskamer
-      data:
-        activity: "-1"
+  - service: remote.turn_on
+    entity_id: remote.huiskamer
+    data:
+      activity: '-1'
 christmas_on:
-  alias: Christmas
+  alias: Christmas lights
   sequence:
-    - service: automation.trigger
-      entity_id: automation.kerstlampjes_aan_voor_zonsondergang
+  - data:
+      entity_id: group.kerst
+    entity_id: automation.kerstlampjes_aan_voor_zonsondergang
+    service: homeassistant.turn_on
