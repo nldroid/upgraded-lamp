@@ -56,15 +56,15 @@
       - condition: state
         entity_id: 'switch.ventilator'
         state: 'on'
-	  - condition: numeric_state
-		entity_id: 'sensor.co2_slaapkamer'
-		below: '600'
-	  - condition: numeric_state
-		entity_id: 'sensor.co2_studeerkamer'
-		below: '600'
-	  - condition: numeric_state
-		entity_id: 'sensor.co2_woonkamer'
-		below: '600'
+      - condition: numeric_state
+        entity_id: 'sensor.co2_slaapkamer'
+        below: '600'
+      - condition: numeric_state
+        entity_id: 'sensor.co2_studeerkamer'
+        below: '600'
+      - condition: numeric_state
+        entity_id: 'sensor.co2_woonkamer'
+        below: '600'
   action:
     - service: switch.turn_off
       entity_id: switch.ventilator
