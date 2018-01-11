@@ -13,6 +13,13 @@ homeassistant:
   # Customization file
   customize: !include customize.yaml
 
+panel_custom:
+  - name: floorplan
+    sidebar_title: Floorplan
+    sidebar_icon: mdi:home
+    url_path: floorplan
+    config: !include floorplan.yaml
+
 mqtt:
   broker: localhost
   port: 1883
