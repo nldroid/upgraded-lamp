@@ -4,15 +4,23 @@ stylesheet: /local/custom_ui/floorplan/floorplan.css
 
 groups:
 
-  - name: Sensors
+  - name: temp
     entities:
       - sensor.sensebender_micro_1_1
-      - sensor.luchtvochtigheid_woonkamer
-      - sensor.co2_woonkamer
       - sensor.temperatuur_slaapkamer
-      - sensor.luchtvochtigheid_slaapkamer
-      - sensor.co2_slaapkamer
       - sensor.temperatuur_studeerkamer
-      - sensor.luchtvochtigheid_studeerkamer
-      - sensor.co2_studeerkamer
+    text_template: '${entity.state ? entity.state : "na"}°C'
 
+  - name: ppm
+    entities:
+      - sensor.co2_woonkamer
+      - sensor.co2_slaapkamer
+      - sensor.co2_studeerkamer
+    text_template: '${entity.state ? entity.state : "na"} ppm'
+
+  - name: hum
+    entities:
+      - sensor.luchtvochtigheid_woonkamer
+      - sensor.luchtvochtigheid_slaapkamer
+      - sensor.luchtvochtigheid_studeerkamer
+    text_template: '${entity.state ? entity.state : "na"}%'
