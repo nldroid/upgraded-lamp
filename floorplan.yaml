@@ -9,6 +9,7 @@ groups:
       - sensor.sensebender_micro_1_1
       - sensor.temperatuur_slaapkamer
       - sensor.temperatuur_studeerkamer
+      - sensor.sensebender_micro_2_1
     text_template: '${entity.state ? entity.state : "na"}°C'
 
   - name: ppm
@@ -24,3 +25,29 @@ groups:
       - sensor.luchtvochtigheid_slaapkamer
       - sensor.luchtvochtigheid_studeerkamer
     text_template: '${entity.state ? entity.state : "na"}%'
+
+  - name: lights
+    entities:
+      - light.hue_ambiance_spot_1
+      - light.hue_white_lamp_1
+      - light.hue_white_lamp_2
+    states:
+      - state: 'on'
+        class: 'light-on'
+      - state: 'off'
+        class: 'light-off'
+    action:
+      service: toggle
+
+  - name: switches
+    entities:
+      - switch.fibaro_plug_switch
+      - switch.aeotec_zw096_smart_switch_6_switch
+      - switch.lampjes_buiten_switch
+    states:
+      - state: 'on'
+        class: 'light-on'
+      - state: 'off'
+        class: 'light-off'
+    action:
+      service: toggle

@@ -44,9 +44,9 @@ script.harmony_off:
   google_assistant: 'true'
 script.christmas_on:
   google_assistant: 'true'
-switch.kerstboom_switch:
-  friendly_name: Christmas tree
-  google_assistant: 'true'
+#switch.kerstboom_switch:
+#  friendly_name: Christmas tree
+#  google_assistant: 'true'
 sensor.kerstboom_power_management:
   ignored: 'true'
   hidden: true
@@ -65,3 +65,6 @@ sensor.lampjes_buiten_alarm_level:
 sensor.lampjes_buiten_alarm_type:
   ignored: 'true'
   hidden: true
+light.hue_white_lamp_1:
+  friendly_name: Floor lamp
+  google_assistant: 'true'

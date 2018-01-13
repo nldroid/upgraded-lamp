@@ -47,6 +47,7 @@
       - light.hue_ambiance_spot_1
       - switch.fibaro_plug_switch
       - sensor.fibaro_plug_power
+      - light.hue_white_lamp_1
 
   televisiekast:
     name: Televisiekast
