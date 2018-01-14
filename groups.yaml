@@ -13,12 +13,18 @@
 #      - group.ventilator
 #      - group.all_co2
 
-  ventilator:
-    name: Ventilator
+  utilities:
+    name: Utilities
     view: yes
     entities:
 #      - switch.ventilator
       - group.all_co2
+      - group.water
+
+  water:
+    name: Water
+    entities:
+      - sensor.watermeter_flow
 
   planten:
     name: Planten
