@@ -52,6 +52,11 @@
   name: 'Luchtdruk studeerkamer'
   unit_of_measurement: 'hPa'
 
+- platform: mqtt
+  state_topic: '/watermeter/flow/Count'
+  name: 'Watermeter flow'
+  unit_of_measurement: 'cnt'
+
 - platform: miflora
   mac: 'C4:7C:8D:64:3B:41'
   name: Dracaena marginata

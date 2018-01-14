@@ -94,6 +94,7 @@ history:
       - sensor.sensebender_micro_2_1
       - sensor.sensebender_micro_2_2
       - sensor.co2_slaapkamer
+      - sensor.watermeter_flow
 
 history_graph:
   gr1:
