@@ -198,6 +198,7 @@ zwave:
       polling_intensity: 1
 
 sensor: !include sensors.yaml
+fan: !include fans.yaml
 group: !include groups.yaml
 automation: !include automations.yaml
 script: !include scripts.yaml

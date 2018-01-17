@@ -44,9 +44,6 @@ script.harmony_off:
   google_assistant: 'true'
 script.christmas_on:
   google_assistant: 'true'
-#switch.kerstboom_switch:
-#  friendly_name: Christmas tree
-#  google_assistant: 'true'
 sensor.kerstboom_power_management:
   ignored: 'true'
   hidden: true
@@ -68,3 +65,9 @@ sensor.lampjes_buiten_alarm_type:
 light.hue_white_lamp_1:
   friendly_name: Floor lamp
   google_assistant: 'true'
+sensor.ventilator_tijd:
+  friendly_name: Timer
+  icon: mdi:timer
+sensor.ventilator_snelheid:
+  friendly_name: Snelheid
+  icon: mdi:transfer

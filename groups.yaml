@@ -17,9 +17,16 @@
     name: Utilities
     view: yes
     entities:
-#      - switch.ventilator
+      - group.ventilator
       - group.all_co2
       - group.water
+
+  ventilator:
+    name: Ventilatiesysteem
+    entities:
+      - fan.ventilatiesysteem
+      - sensor.ventilator_snelheid
+      - sensor.ventilator_tijd
 
   water:
     name: Water
