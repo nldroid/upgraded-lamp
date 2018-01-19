@@ -11,7 +11,7 @@
   payload_medium_speed: "State 2"
   payload_high_speed: "State 3"
   optimistic: "true"
-  name: Status
+  name: Ventilatiesysteem
   speeds:
     - low
     - medium
