@@ -10,6 +10,7 @@
       - media_player.jukebox
       - group.woonkamer_temperatuur
       - group.kerst
+      - group.weatherstation
 #      - group.ventilator
 #      - group.all_co2
 
@@ -91,6 +92,14 @@
       - sensor.co2_woonkamer
       - sensor.luchtdruk_woonkamer
       - sensor.sensebender_micro_2_1
+
+  weatherstation:
+    name: Weerstation
+    entities:
+      - sensor.temperatuur_weerstation
+      - sensor.luchtdruk_weerstation
+      - sensor.luchtvochtigheid_weerstation
+      - sensor.lux_weerstation
 
   plant:
     name: Dracaena marginata
