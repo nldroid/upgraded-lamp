@@ -18,3 +18,54 @@
   - data:
       entity_id: group.kerst
     service: homeassistant.turn_off
+
+- id: ventilator_aan
+  alias: Ventilator aan
+  trigger:
+    platform: time
+    minutes: '/10'
+    seconds: 00
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: 'fan.ventilatiesysteem'
+        state: 'off'
+      - condition: or
+        conditions:
+          - condition: numeric_state
+            entity_id: 'sensor.co2_slaapkamer'
+            above: '600'
+          - condition: numeric_state
+            entity_id: 'sensor.co2_studeerkamer'
+            above: '600'
+          - condition: numeric_state
+            entity_id: 'sensor.co2_woonkamer'
+            above: '600'
+  action:
+    - service: fan.turn_on
+      entity_id: fan.ventilatiesysteem
+- id: ventilator_uit
+  alias: Ventilator uit
+  trigger:
+    platform: time
+    minutes: '/10'
+    seconds: 00
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: 'fan.ventilatiesysteem'
+        state: 'on'
+      - condition: numeric_state
+        entity_id: 'sensor.co2_slaapkamer'
+        below: '600'
+      - condition: numeric_state
+        entity_id: 'sensor.co2_studeerkamer'
+        below: '600'
+      - condition: numeric_state
+        entity_id: 'sensor.co2_woonkamer'
+        below: '600'
+  action:
+    - service: fan.turn_off
+      entity_id: fan.ventilatiesysteem
