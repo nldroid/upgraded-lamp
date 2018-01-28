@@ -18,7 +18,7 @@ entity_config:
     expose: true
   light.hue_ambiance_spot_1:
     name: Bol lamp
-    expose: true	
+    expose: true
   light.hue_white_lamp_1:
     name: Floor lamp
     expose: true
@@ -38,6 +38,6 @@ entity_config:
     name: Television
     expose: true
   switch.fibaro_plug_switch:
-    name: Tower lamp  
+    name: Tower lamp
     expose: true
     type: light
