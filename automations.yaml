@@ -18,7 +18,6 @@
   - data:
       entity_id: group.kerst
     service: homeassistant.turn_off
-
 - id: ventilator_aan
   alias: Ventilator aan
   trigger:
