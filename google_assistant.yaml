@@ -1,0 +1,43 @@
+project_id: !secret google_assistant_project_id
+client_id: !secret google_assistant_client_id
+access_token: !secret google_assistant_access_token
+api_key: !secret google_assistant_api_key
+agent_user_id: !secret google_assistant_agent_user_id
+expose_by_default: false
+exposed_domains:
+  - switch
+  - script
+  - light
+#  - group
+entity_config:
+  light.hue_white_lamp_2:
+    name: Arch
+    expose: true
+  switch.lampjes_buiten_switch:
+    name: Balcony lights
+    expose: true
+  light.hue_ambiance_spot_1:
+    name: Bol lamp
+    expose: true	
+  light.hue_white_lamp_1:
+    name: Floor lamp
+    expose: true
+  script.harmony_off:
+    name: Harmony off
+    expose: true
+  script.jukebox_on:
+    name: Jukebox
+    expose: true
+  switch.aeotec_zw096_smart_switch_6_switch:
+    name: Main power
+    expose: true
+  script.music_on:
+    name: Music
+    expose: true
+  script.television_on:
+    name: Television
+    expose: true
+  switch.fibaro_plug_switch:
+    name: Tower lamp  
+    expose: true
+    type: light
