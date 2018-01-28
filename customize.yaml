@@ -71,3 +71,11 @@ sensor.ventilator_tijd:
 sensor.ventilator_snelheid:
   friendly_name: Snelheid
   icon: mdi:transfer
+sensor.lux_weerstation:
+  friendly_name: Lux
+sensor.luchtvochtigheid_weerstation:
+  friendly_name: Luchtvochtigheid
+sensor.temperatuur_weerstation:
+  friendly_name: Temperatuur
+sensor.luchtdruk_weerstation:
+  friendly_name: Luchtdruk
