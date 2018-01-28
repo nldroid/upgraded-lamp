@@ -23,36 +23,11 @@ panel_custom:
 mqtt:
   broker: localhost
   port: 1883
-#  discovery: true
-#  discovery_prefix: homeassistant
-#  embedded:
-#    auth:
-#      allow-anonymous: true
-
-#switch:
-#  - platform: mqtt
-#    name: "Ventilator"
-#    state_topic: "stat/sonoff-ventilator/POWER"
-#    command_topic: "cmnd/sonoff-ventilator/POWER"
-#    qos: 1
-#    payload_on: "ON"
-#    payload_off: "OFF"
-#    retain: true
 
 logger:
   default: error
   logs:
     homeassistant.components.zwave: critical
-
-#input_select:
-#  harmony:
-#    name: Harmony
-#    options:
-#      - PowerOff
-#      - naar muziek luisteren
-#      - tv kijken
-#      - Jukebox
-#    icon: mdi:monitor
 
 recorder:
   purge_interval: 1
@@ -68,15 +43,10 @@ recorder:
       - sensor.last_boot # Comes from 'systemmonitor' sensor platform
       - sensor.date
       - sensor.fibaro_plug_exporting
-#      - sensor.kerstboom_exporting
       - sensor.lampjes_buiten_exporting
-#      - sensor.kerstboom_power_management
-#      - sensor.kerstboom_alarm_level
-#      - sensor.kerstboom_alarm_type
       - sensor.lampjes_buiten_power_management
       - sensor.lampjes_buiten_alarm_level
       - sensor.lampjes_buiten_alarm_type
-#      - sensor.kerstboom_sourcenodeid
       - sensor.lampjes_buiten_sourcenodeid
 
 influxdb:
@@ -117,19 +87,6 @@ media_player:
   - platform: cast
     host: 192.168.86.30
     name: Google Home Huiskamer
-
-google_assistant:
-  project_id: !secret google_assistant_project_id
-  client_id: !secret google_assistant_client_id
-  access_token: !secret google_assistant_access_token
-  api_key: !secret google_assistant_api_key
-  agent_user_id: !secret google_assistant_agent_user_id
-  expose_by_default: false
-  exposed_domains:
-    - switch
-    - script
-    - light
-#    - group
 
 mysensors:
   gateways:
@@ -197,6 +154,7 @@ zwave:
     sensor.aeotec_zw096_smart_switch_6_power:
       polling_intensity: 1
 
+google_assistant: !include google_assistant.yaml
 sensor: !include sensors.yaml
 fan: !include fans.yaml
 group: !include groups.yaml
