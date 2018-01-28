@@ -5,6 +5,7 @@
 !custom_components/
 !custom_components/media_player/
 !custom_components/media_player/*
+mysensors/
 mysensors.json
 secrets.yaml
 known_devices.yaml
