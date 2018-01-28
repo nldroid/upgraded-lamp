@@ -5,11 +5,8 @@ configurator.philips_hue:
   homebridge_hidden: true
 switch.aeotec_zw096_smart_switch_6_switch:
   friendly_name: Main power
-  google_assistant: true
 sensor.huiskamer:
   friendly_name: Huidige activiteit
-switch.fibaro_system_fgwpef_wall_plug_switch:
-  google_assistant: false
 sensor.sensebender_micro_1_1:
   friendly_name: Temperatuur huiskamer
 sensor.sensebender_micro_1_2:
@@ -20,30 +17,16 @@ sensor.sensebender_micro_2_2:
   friendly_name: Luchtvochtigheid buiten
 switch.fibaro_plug_switch:
   friendly_name: Tower lamp
-  google_assistant: true
 light.hue_ambiance_spot_1:
   friendly_name: Bol lamp
-  google_assistant: true
 light.hue_white_lamp_2:
   friendly_name: Arch
-  google_assistant: true
-script.television_on:
-  google_assistant: true
-script.jukebox_on:
-  google_assistant: true
 sensor.aeotec_zw096_smart_switch_6_power:
   friendly_name: Televisiekast
 sensor.fibaro_plug_power:
   friendly_name: Tower lamp
 switch.lampjes_buiten_switch:
   friendly_name: Balcony lights
-  google_assistant: 'true'
-script.music_on:
-  google_assistant: 'true'
-script.harmony_off:
-  google_assistant: 'true'
-script.christmas_on:
-  google_assistant: 'true'
 sensor.kerstboom_power_management:
   ignored: 'true'
   hidden: true
@@ -64,7 +47,6 @@ sensor.lampjes_buiten_alarm_type:
   hidden: true
 light.hue_white_lamp_1:
   friendly_name: Floor lamp
-  google_assistant: 'true'
 sensor.ventilator_tijd:
   friendly_name: Timer
   icon: mdi:timer
