@@ -1,0 +1,120 @@
+switch.fibaro_system_fgwpef_wall_plug_switch:
+  platform: zwave
+  unique_id: 2-72057594076282880
+sensor.fibaro_system_fgwpef_wall_plug_power:
+  platform: zwave
+  unique_id: 2-72057594076479554
+sensor.fibaro_system_fgwpef_wall_plug_energy:
+  platform: zwave
+  unique_id: 2-72057594076495874
+sensor.fibaro_system_fgwpef_wall_plug_power_2:
+  platform: zwave
+  unique_id: 2-72057594076496002
+sensor.fibaro_system_fgwpef_wall_plug_exporting:
+  platform: zwave
+  unique_id: 2-72057594076496384
+switch.fibaro_plug_switch:
+  platform: zwave
+  unique_id: 3-72057594093060096
+sensor.fibaro_plug_power:
+  platform: zwave
+  unique_id: 3-72057594093256770
+sensor.fibaro_plug_energy:
+  platform: zwave
+  unique_id: 3-72057594093273090
+sensor.fibaro_plug_power_2:
+  platform: zwave
+  unique_id: 3-72057594093273218
+sensor.fibaro_plug_exporting:
+  platform: zwave
+  unique_id: 3-72057594093273600
+switch.aeotec_zw096_smart_switch_6_switch:
+  platform: zwave
+  unique_id: 4-72057594109837312
+sensor.aeotec_zw096_smart_switch_6_energy:
+  platform: zwave
+  unique_id: 4-72057594110050306
+sensor.aeotec_zw096_smart_switch_6_previous_reading:
+  platform: zwave
+  unique_id: 4-72057594110050322
+sensor.aeotec_zw096_smart_switch_6_power:
+  platform: zwave
+  unique_id: 4-72057594110050434
+sensor.aeotec_zw096_smart_switch_6_voltage:
+  platform: zwave
+  unique_id: 4-72057594110050562
+sensor.aeotec_zw096_smart_switch_6_current:
+  platform: zwave
+  unique_id: 4-72057594110050626
+switch.lampjes_buiten_switch:
+  platform: zwave
+  unique_id: 7-72057594160168960
+sensor.lampjes_buiten_energy:
+  platform: zwave
+  unique_id: 7-72057594160381954
+sensor.lampjes_buiten_previous_reading:
+  platform: zwave
+  unique_id: 7-72057594160381970
+sensor.lampjes_buiten_interval:
+  platform: zwave
+  unique_id: 7-72057594160381987
+sensor.lampjes_buiten_power:
+  platform: zwave
+  unique_id: 7-72057594160382082
+sensor.lampjes_buiten_previous_reading_2:
+  platform: zwave
+  unique_id: 7-72057594160382098
+sensor.lampjes_buiten_interval_2:
+  platform: zwave
+  unique_id: 7-72057594160382115
+sensor.lampjes_buiten_voltage:
+  platform: zwave
+  unique_id: 7-72057594160382210
+sensor.lampjes_buiten_previous_reading_3:
+  platform: zwave
+  unique_id: 7-72057594160382226
+sensor.lampjes_buiten_interval_3:
+  platform: zwave
+  unique_id: 7-72057594160382243
+sensor.lampjes_buiten_current:
+  platform: zwave
+  unique_id: 7-72057594160382274
+sensor.lampjes_buiten_previous_reading_4:
+  platform: zwave
+  unique_id: 7-72057594160382290
+sensor.lampjes_buiten_interval_4:
+  platform: zwave
+  unique_id: 7-72057594160382307
+sensor.lampjes_buiten_exporting:
+  platform: zwave
+  unique_id: 7-72057594160382464
+sensor.lampjes_buiten_alarm_type:
+  platform: zwave
+  unique_id: 7-72057594161414145
+sensor.lampjes_buiten_alarm_level:
+  platform: zwave
+  unique_id: 7-72057594161414161
+sensor.lampjes_buiten_sourcenodeid:
+  platform: zwave
+  unique_id: 7-72057594161414177
+sensor.lampjes_buiten_power_management:
+  platform: zwave
+  unique_id: 7-72057594161414321
+light.hue_ambiance_spot_1:
+  platform: hue
+  unique_id: 00:17:88:01:02:30:67:34-0b
+light.hue_white_lamp_2:
+  platform: hue
+  unique_id: 00:17:88:01:02:6c:74:53-0b
+light.hue_white_lamp_1:
+  platform: hue
+  unique_id: 00:17:88:01:02:6e:5c:9d-0b
+media_player.woonkamer:
+  platform: squeezebox
+  unique_id: 00:04:20:22:4b:fa
+media_player.jukebox:
+  platform: cast
+  unique_id: 7ceac68a-69a4-d37b-7bdc-cc8c68a25597
+media_player.living_room_home:
+  platform: cast
+  unique_id: e2a021d1-d49e-f333-b927-7e568d7a8a57

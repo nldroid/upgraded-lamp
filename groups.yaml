@@ -9,7 +9,7 @@
       - media_player.duo2
       - media_player.jukebox
       - group.woonkamer_temperatuur
-      - group.kerst
+#      - group.kerst
       - group.weatherstation
 #      - group.ventilator
 #      - group.all_co2
@@ -124,11 +124,11 @@
     entities:
       - media_player.vu_duo2
 
-  kerst:
-    name: Kerst
-    entities: 
+#  kerst:
+#    name: Kerst
+#    entities: 
 #      - switch.kerstboom_switch
-      - switch.lampjes_buiten_switch
+#      - switch.lampjes_buiten_switch
 
   woonkamer_temperatuur:
     name: Temperatuur en Co2
