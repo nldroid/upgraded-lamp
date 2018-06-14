@@ -40,4 +40,4 @@ entity_config:
   switch.fibaro_plug_switch:
     name: Tower lamp
     expose: true
-    type: light
+#    type: light
