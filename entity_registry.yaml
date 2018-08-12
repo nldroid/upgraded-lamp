@@ -199,7 +199,7 @@ media_player.living_room_home:
   platform: cast
   unique_id: e2a021d1-d49e-f333-b927-7e568d7a8a57
 media_player.robcast:
-  config_entry_id:
+  config_entry_id: a2cd84356521406784c907a538aa4211
   name:
   platform: cast
   unique_id: ebb60484-9b9c-e2d6-3d2f-ffa84c366a63

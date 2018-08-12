@@ -22,6 +22,22 @@
       - group.all_co2
       - group.water
 
+  statusinfo:
+    name: Status info
+    view: yes
+    entities:
+      - group.lastupdated
+
+  lastupdated:
+    name: Laatste updates
+    entities:
+      - sensor.co2_woonkamer_lastupdate
+      - sensor.co2_slaapkamer_lastupdate
+      - sensor.co2_studeerkamer_lastupdate
+      - sensor.watermeter_lastupdate
+      - sensor.ventilator_snelheid_lastupdate
+      - sensor.weerstation_temperatuur_lastupdate
+
   ventilator:
     name: Ventilatiesysteem
     entities:

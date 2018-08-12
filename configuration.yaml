@@ -48,6 +48,7 @@ recorder:
       - sensor.lampjes_buiten_alarm_level
       - sensor.lampjes_buiten_alarm_type
       - sensor.lampjes_buiten_sourcenodeid
+      - sensor.date__time
 
 influxdb:
   host: !secret influxdb_host
@@ -160,3 +161,4 @@ fan: !include fans.yaml
 group: !include groups.yaml
 automation: !include automations.yaml
 script: !include scripts.yaml
+notify: !include notify.yaml

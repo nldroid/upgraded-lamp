@@ -1,3 +1,42 @@
+- id: mqtt_channel_check
+  alias: Mqtt channel check
+  trigger:
+  - at: '20:00:00'
+    platform: time
+  condition:
+    condition: or
+    conditions:
+      - condition: numeric_state
+        entity_id: 'sensor.co2_woonkamer_lastupdate'
+        above: 30
+      - condition: numeric_state
+        entity_id: 'sensor.co2_slaapkamer_lastupdate'
+        above: 30
+      - condition: numeric_state
+        entity_id: 'sensor.co2_studeerkamer_lastupdate'
+        above: 30
+      - condition: numeric_state
+        entity_id: 'sensor.watermeter_lastupdate'
+        above: 720
+      - condition: numeric_state
+        entity_id: 'sensor.ventilator_snelheid_lastupdate'
+        above: 720
+      - condition: numeric_state
+        entity_id: 'sensor.weerstation_temperatuur_lastupdate'
+        above: 30
+  action:
+    service: notify.slack
+    data_template:
+      message: >
+        Een van de Mqtt services is down. 
+        Co2 woonkamer: {{ states.sensor.co2_woonkamer_lastupdate.state }}, 
+        Co2 slaapkamer: {{ states.sensor.co2_slaapkamer_lastupdate.state }}, 
+        Co2 studeerkamer: {{ states.sensor.co2_studeerkamer_lastupdate.state }}, 
+        Watermeter: {{ states.sensor.watermeter_lastupdate.state }},
+        Ventilator: {{ states.sensor.ventilator_snelheid_lastupdate.state }},
+        Weerstation: {{ states.sensor.weerstation_temperatuur_lastupdate.state }}.
+      target: "@rob"
+
 - id: kerst_aan
   alias: Kerstlampjes aan voor zonsondergang
   trigger:
