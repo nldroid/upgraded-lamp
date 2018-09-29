@@ -75,8 +75,8 @@
     entities:
       - light.hue_white_lamp_2
       - light.hue_ambiance_spot_1
-      - switch.fibaro_plug_switch
-      - sensor.fibaro_plug_power
+      - switch.fibaro_system_fgwpef_wall_plug_switch_2
+      - sensor.fibaro_system_fgwpef_wall_plug_power_4
       - light.hue_white_lamp_1
 
   televisiekast:

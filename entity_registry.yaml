@@ -233,3 +233,138 @@ zwave.aeotec_zw096_smart_switch_6:
   name:
   platform: zwave
   unique_id: node-4
+sensor.neo_coolcam_power_plug_12a_power:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 9-72057594193936514
+sensor.neo_coolcam_power_plug_12a_voltage:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 9-72057594193936642
+sensor.neo_coolcam_power_plug_12a_current:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 9-72057594193936706
+sensor.neo_coolcam_power_plug_12a_exporting:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 9-72057594193936896
+sensor.neo_coolcam_power_plug_12a_sourcenodeid:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 9-72057594194968609
+sensor.neo_coolcam_power_plug_12a_power_management:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 9-72057594194968753
+zwave.neo_coolcam_power_plug_12a:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: node-9
+switch.neo_coolcam_power_plug_12a_switch:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 9-72057594193723392
+sensor.neo_coolcam_power_plug_12a_alarm_type:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 9-72057594194968577
+sensor.neo_coolcam_power_plug_12a_alarm_level:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 9-72057594194968593
+sensor.neo_coolcam_power_plug_12a_energy:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 9-72057594193936386
+sensor.tower_lamp_previous_reading:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 9-72057594193936402
+sensor.tower_lamp_interval:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 9-72057594193936419
+sensor.tower_lamp_previous_reading_2:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 9-72057594193936530
+sensor.tower_lamp_interval_2:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 9-72057594193936547
+sensor.tower_lamp_previous_reading_3:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 9-72057594193936658
+sensor.tower_lamp_interval_3:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 9-72057594193936675
+sensor.tower_lamp_previous_reading_4:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 9-72057594193936722
+sensor.tower_lamp_interval_4:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 9-72057594193936739
+sensor.fibaro_system_fgwpef_wall_plug_power_3:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 10-72057594210713730
+sensor.fibaro_system_fgwpef_wall_plug_exporting_2:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 10-72057594210714112
+zwave.fibaro_system_fgwpef_wall_plug_2:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: node-10
+switch.fibaro_system_fgwpef_wall_plug_switch_2:
+  config_entry_id:
+  name: Tower Lamp
+  platform: zwave
+  unique_id: 10-72057594210500608
+sensor.fibaro_system_fgwpef_wall_plug_none:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 10-72057594211745793
+sensor.fibaro_system_fgwpef_wall_plug_none_2:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 10-72057594211745809
+sensor.fibaro_system_fgwpef_wall_plug_energy_2:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 10-72057594210713602
+sensor.fibaro_system_fgwpef_wall_plug_power_4:
+  config_entry_id:
+  name:
+  platform: zwave
+  unique_id: 10-72057594210697282

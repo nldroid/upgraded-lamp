@@ -1,3 +1,28 @@
+- alias: Svanhild thuis
+  hide_entity: true
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.svanhild_woonkamer
+      above: 90
+  action:
+    service: notify.slack
+    data_template:
+      message: >
+        Svanhild is thuis
+      target: "@rob"
+- alias: Svanhild weg
+  hide_entity: true
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.svanhild_woonkamer
+      below: 10
+  action:
+    service: notify.slack
+    data_template:
+      message: >
+        Svanhild is weg
+      target: "@rob"
+
 - id: mqtt_channel_check
   alias: Mqtt channel check
   trigger:
@@ -28,7 +53,7 @@
     service: notify.slack
     data_template:
       message: >
-        Een van de Mqtt services is down. 
+        Een van de Mqtt services is down. Laatste updates: 
         Co2 woonkamer: {{ states.sensor.co2_woonkamer_lastupdate.state }}, 
         Co2 slaapkamer: {{ states.sensor.co2_slaapkamer_lastupdate.state }}, 
         Co2 studeerkamer: {{ states.sensor.co2_studeerkamer_lastupdate.state }}, 

@@ -2,6 +2,17 @@
 #  - platform: yr
 
 - platform: mqtt
+  state_topic: 'location/owner/presence/b4:f1:da:64:75:66'
+  value_template: '{{ value_json.confidence }}'
+  unit_of_measurement: '%'
+  name: 'Rob woonkamer'
+- platform: mqtt
+  state_topic: 'location/owner/presence/ac:37:43:77:b3:a2'
+  value_template: '{{ value_json.confidence }}'
+  unit_of_measurement: '%'
+  name: 'Svanhild woonkamer'
+
+- platform: mqtt
   state_topic: '/esp_easy_slaapkamer/co2_sensor/PPM'
   name: 'Co2 slaapkamer'
   unit_of_measurement: 'ppm'
@@ -137,25 +148,25 @@
     co2_woonkamer_lastupdate:
       friendly_name: Co2 sensor woonkamer last updated
       unit_of_measurement: 'min'
-      value_template: '{{ ((as_timestamp(strptime(states.sensor.date__time.state, "%Y-%m-%d, %H:%M")) - as_timestamp(states.sensor.co2_woonkamer.last_updated))/60)|round|int -120 }}'
+      value_template: '{{ ((as_timestamp(strptime(states.sensor.date__time.state, "%Y-%m-%d, %H:%M")) - as_timestamp(states.sensor.co2_woonkamer.last_updated))/60)|round|int -119}}'
     co2_slaapkamer_lastupdate:
       friendly_name: Co2 sensor slaapkamer last updated
       unit_of_measurement: 'min'
-      value_template: '{{ ((as_timestamp(strptime(states.sensor.date__time.state, "%Y-%m-%d, %H:%M")) - as_timestamp(states.sensor.co2_slaapkamer.last_updated))/60)|round|int -120 }}'
+      value_template: '{{ ((as_timestamp(strptime(states.sensor.date__time.state, "%Y-%m-%d, %H:%M")) - as_timestamp(states.sensor.co2_slaapkamer.last_updated))/60)|round|int -119 }}'
     co2_studeerkamer_lastupdate:
       friendly_name: Co2 sensor studeerkamer last updated
       unit_of_measurement: 'min'
-      value_template: '{{ ((as_timestamp(strptime(states.sensor.date__time.state, "%Y-%m-%d, %H:%M")) - as_timestamp(states.sensor.co2_studeerkamer.last_updated))/60)|round|int -120 }}'
+      value_template: '{{ ((as_timestamp(strptime(states.sensor.date__time.state, "%Y-%m-%d, %H:%M")) - as_timestamp(states.sensor.co2_studeerkamer.last_updated))/60)|round|int -119 }}'
     watermeter_lastupdate:
       friendly_name: Watermeter last updated
       unit_of_measurement: 'min'
-      value_template: '{{ ((as_timestamp(strptime(states.sensor.date__time.state, "%Y-%m-%d, %H:%M")) - as_timestamp(states.sensor.watermeter_flow.last_updated))/60)|round|int -120 }}'
+      value_template: '{{ ((as_timestamp(strptime(states.sensor.date__time.state, "%Y-%m-%d, %H:%M")) - as_timestamp(states.sensor.watermeter_flow.last_updated))/60)|round|int -119 }}'
     ventilator_snelheid_lastupdate:
       friendly_name: Ventilator snelheid last updated
       unit_of_measurement: 'min'
-      value_template: '{{ ((as_timestamp(strptime(states.sensor.date__time.state, "%Y-%m-%d, %H:%M")) - as_timestamp(states.sensor.ventilator_snelheid.last_updated))/60)|round|int -120 }}'
+      value_template: '{{ ((as_timestamp(strptime(states.sensor.date__time.state, "%Y-%m-%d, %H:%M")) - as_timestamp(states.sensor.ventilator_snelheid.last_updated))/60)|round|int -119 }}'
     weerstation_temperatuur_lastupdate:
       friendly_name: Weerstation temperatuur last updated
       unit_of_measurement: 'min'
-      value_template: '{{ ((as_timestamp(strptime(states.sensor.date__time.state, "%Y-%m-%d, %H:%M")) - as_timestamp(states.sensor.temperatuur_weerstation.last_updated))/60)|round|int -120 }}'
+      value_template: '{{ ((as_timestamp(strptime(states.sensor.date__time.state, "%Y-%m-%d, %H:%M")) - as_timestamp(states.sensor.temperatuur_weerstation.last_updated))/60)|round|int -119 }}'
 
