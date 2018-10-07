@@ -1,0 +1,5 @@
+- platform: mqtt
+  state_topic: 'mysensors-out/78/1/1/0/3'
+  name: Deur
+  payload_on: "1"
+  payload_off: "0"

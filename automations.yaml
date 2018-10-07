@@ -1,26 +1,28 @@
-- alias: Svanhild thuis
+- alias: Deur op slot
   hide_entity: true
   trigger:
-    - platform: numeric_state
-      entity_id: sensor.svanhild_woonkamer
-      above: 90
+    - platform: state
+      entity_id: binary_sensor.deur
+      from: 'off'
+      to: 'on'
   action:
     service: notify.slack
     data_template:
       message: >
-        Svanhild is thuis
+        Deur op slot`
       target: "@rob"
-- alias: Svanhild weg
+- alias: Deur van slot
   hide_entity: true
   trigger:
-    - platform: numeric_state
-      entity_id: sensor.svanhild_woonkamer
-      below: 10
+    - platform: state
+      entity_id: binary_sensor.deur
+      from: 'on'
+      to: 'off'
   action:
     service: notify.slack
     data_template:
       message: >
-        Svanhild is weg
+        Deur van slot
       target: "@rob"
 
 - id: mqtt_channel_check

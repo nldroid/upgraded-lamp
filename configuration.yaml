@@ -23,6 +23,7 @@ panel_custom:
 mqtt:
   broker: localhost
   port: 1883
+#  discovery: true
 
 logger:
   default: error
@@ -111,7 +112,7 @@ config:
 
 http:
   # Secrets are defined in the file secrets.yaml
-  # api_password: !secret http_password
+  api_password: !secret http_password
   # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
   # base_url: example.duckdns.org:8123
 
@@ -157,6 +158,7 @@ zwave:
 
 google_assistant: !include google_assistant.yaml
 sensor: !include sensors.yaml
+binary_sensor: !include binary_sensors.yaml
 fan: !include fans.yaml
 group: !include groups.yaml
 automation: !include automations.yaml

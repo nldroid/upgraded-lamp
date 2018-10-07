@@ -41,7 +41,7 @@ groups:
 
   - name: switches
     entities:
-      - switch.fibaro_plug_switch
+      - switch.fibaro_system_fgwpef_wall_plug_switch_2
       - switch.aeotec_zw096_smart_switch_6_switch
       - switch.lampjes_buiten_switch
     states:

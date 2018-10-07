@@ -21,6 +21,12 @@
       - group.ventilator
       - group.all_co2
       - group.water
+      - group.deuren
+
+  deuren:
+    name: Deuren
+    entities:
+      - binary_sensor.deur
 
   statusinfo:
     name: Status info
