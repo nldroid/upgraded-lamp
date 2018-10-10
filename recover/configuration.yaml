@@ -1,0 +1,17 @@
+homeassistant: true
+permit_join: true
+mqtt:
+  base_topic: zigbee2mqtt
+  server: 'mqtt://192.168.86.110'
+serial:
+  port: /dev/ttyACM1
+devices:
+  '0x000b57fffed70940':
+    friendly_name: '0x000b57fffed70940'
+    retain: false
+  '0x000b57fffed5bca9':
+    friendly_name: '0x000b57fffed5bca9'
+    retain: false
+  '0x000b57fffed6d66c':
+    friendly_name: '0x000b57fffed6d66c'
+    retain: false
