@@ -1,1 +1,9 @@
-/etc/systemd/system/mysgw.service
+[Unit]
+Description=MySensors Gateway daemon
+Requires=network.target
+
+[Service]
+ExecStart=/usr/local/bin/mysgw -q
+
+[Install]
+WantedBy=multi-user.target

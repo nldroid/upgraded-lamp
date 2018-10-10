@@ -1,1 +1,1 @@
-/home/pi/restart_home_assistant.sh
+sudo systemctl restart home-assistant@homeassistant.service
