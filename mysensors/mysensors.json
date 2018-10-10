@@ -1,66 +1,66 @@
 {
     "0": {
-        "protocol_version": "2.1.1",
-        "children": {},
-        "heartbeat": 0,
+        "sensor_id": 0,
+        "protocol_version": "2.3.1-beta",
         "battery_level": 0,
         "sketch_version": null,
-        "sketch_name": null,
         "type": 18,
-        "sensor_id": 0
+        "children": {},
+        "sketch_name": null,
+        "heartbeat": 0
     },
     "1": {
+        "sensor_id": 1,
         "protocol_version": "1.4.1",
+        "battery_level": 60,
+        "sketch_version": "1.1",
+        "type": 17,
         "children": {
             "1": {
+                "type": 6,
                 "values": {
-                    "0": "22.1"
+                    "0": "22.6"
                 },
                 "id": 1,
-                "type": 6,
                 "description": "1.4.1"
             },
             "2": {
+                "type": 7,
+                "values": {
+                    "1": "69"
+                },
+                "id": 2,
+                "description": "1.4.1"
+            }
+        },
+        "sketch_name": "Sensebender Micro",
+        "heartbeat": 0
+    },
+    "2": {
+        "sensor_id": 2,
+        "protocol_version": "1.4.1",
+        "battery_level": 54,
+        "sketch_version": "1.1",
+        "type": 17,
+        "children": {
+            "1": {
+                "type": 6,
+                "values": {
+                    "0": "22.4"
+                },
+                "id": 1,
+                "description": "1.4.1"
+            },
+            "2": {
+                "type": 7,
                 "values": {
                     "1": "64"
                 },
                 "id": 2,
-                "type": 7,
                 "description": "1.4.1"
             }
         },
-        "heartbeat": 0,
-        "battery_level": 60,
-        "sketch_version": "1.1",
         "sketch_name": "Sensebender Micro",
-        "type": 17,
-        "sensor_id": 1
-    },
-    "2": {
-        "protocol_version": "1.4.1",
-        "children": {
-            "1": {
-                "values": {
-                    "0": "17.4"
-                },
-                "id": 1,
-                "type": 6,
-                "description": "1.4.1"
-            },
-            "2": {
-                "values": {
-                    "1": "76"
-                },
-                "id": 2,
-                "type": 7,
-                "description": "1.4.1"
-            }
-        },
-        "heartbeat": 0,
-        "battery_level": 51,
-        "sketch_version": "1.1",
-        "sketch_name": "Sensebender Micro",
-        "type": 17,
-        "sensor_id": 2
+        "heartbeat": 0
     }
 }

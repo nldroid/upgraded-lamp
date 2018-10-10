@@ -8,7 +8,7 @@ exposed_domains:
   - switch
   - script
   - light
-#  - group
+  - group
 entity_config:
   light.hue_white_lamp_2:
     name: Arch
@@ -37,7 +37,10 @@ entity_config:
   script.television_on:
     name: Television
     expose: true
-  switch.fibaro_system_fgwpef_wall_plug_switch_2:
+  switch.fibaro_system_fgwpef_wall_plug_switch:
     name: Tower lamp
     expose: true
 #    type: light
+  group.ikea_lamp:
+    name: Ikea lamp
+    expose: true

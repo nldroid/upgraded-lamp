@@ -23,7 +23,13 @@ panel_custom:
 mqtt:
   broker: localhost
   port: 1883
-#  discovery: true
+  discovery: true
+  birth_message:
+    topic: 'hass/status'
+    payload: 'online'
+  will_message:
+    topic: 'hass/status'
+    payload: 'offline'
 
 logger:
   default: error
@@ -150,7 +156,7 @@ light:
     filename: phue.conf
 
 zwave:
-  usb_path: /dev/zwave
+  usb_path: /dev/ttyACM0
   network_key: !secret zwave_network_key
   device_config:
     sensor.aeotec_zw096_smart_switch_6_power:

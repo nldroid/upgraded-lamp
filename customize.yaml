@@ -15,7 +15,7 @@ sensor.sensebender_micro_2_1:
   friendly_name: Temperatuur buiten
 sensor.sensebender_micro_2_2:
   friendly_name: Luchtvochtigheid buiten
-switch.fibaro_system_fgwpef_wall_plug_switch_2:
+switch.fibaro_system_fgwpef_wall_plug_switch:
   friendly_name: Tower lamp
 light.hue_ambiance_spot_1:
   friendly_name: Bol lamp
@@ -23,7 +23,7 @@ light.hue_white_lamp_2:
   friendly_name: Arch
 sensor.aeotec_zw096_smart_switch_6_power:
   friendly_name: Televisiekast
-sensor.fibaro_system_fgwpef_wall_plug_power_4:
+sensor.fibaro_system_fgwpef_wall_plug_power_2:
   friendly_name: Tower lamp Power
 switch.lampjes_buiten_switch:
   friendly_name: Balcony lights
