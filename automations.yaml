@@ -62,9 +62,9 @@
       - condition: numeric_state
         entity_id: 'sensor.ventilator_snelheid_lastupdate'
         above: 720
-      - condition: numeric_state
-        entity_id: 'sensor.weerstation_temperatuur_lastupdate'
-        above: 30
+#      - condition: numeric_state
+#        entity_id: 'sensor.weerstation_temperatuur_lastupdate'
+#        above: 30
   action:
     service: notify.slack
     data_template:
