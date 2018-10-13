@@ -85,6 +85,7 @@
       - sensor.fibaro_system_fgwpef_wall_plug_power_2
       - light.hue_white_lamp_1
       - group.ikea_lamp
+      - sensor.0x000b57fffe902bb0
 
   ikea_lamp:
     name: Ikea lamp
