@@ -4,14 +4,17 @@ mqtt:
   base_topic: zigbee2mqtt
   server: 'mqtt://192.168.86.110'
 serial:
-  port: /dev/ttyACM1
+  port: /dev/ttyUSB_zigbee
 devices:
   '0x000b57fffed70940':
-    friendly_name: '0x000b57fffed70940'
-    retain: false
-  '0x000b57fffed5bca9':
-    friendly_name: '0x000b57fffed5bca9'
+    friendly_name: 'ikea_lamp_3'
     retain: false
   '0x000b57fffed6d66c':
-    friendly_name: '0x000b57fffed6d66c'
+    friendly_name: 'ikea_lamp_1'
+    retain: false
+  '0x000b57fffed5bca9':
+    friendly_name: 'ikea_lamp_2'
+    retain: false
+  '0x000b57fffe902bb0':
+    friendly_name: 'ikea_dimmer'
     retain: false

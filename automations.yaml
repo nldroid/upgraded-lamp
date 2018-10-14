@@ -1,16 +1,16 @@
 - alias: Dimmer waarde`
   trigger:
     platform: mqtt
-    topic: 'zigbee2mqtt/0x000b57fffe902bb0'
+    topic: 'zigbee2mqtt/ikea_dimmer'
   action:
     service: light.turn_on
     data:
       entity_id:
-        - light.0x000b57fffed6d66c
-        - light.0x000b57fffed5bca9
-        - light.0x000b57fffed70940
+        - light.ikea_lamp_1
+        - light.ikea_lamp_2
+        - light.ikea_lamp_3
     data_template:
-      brightness: '{{ states.sensor["0x000b57fffe902bb0"].state | int }}'
+      brightness: '{{ states.sensor["ikea_dimmer"].state | int }}'
 
 - alias: Deur op slot
   hide_entity: true

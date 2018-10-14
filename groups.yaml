@@ -90,10 +90,9 @@
   ikea_lamp:
     name: Ikea lamp
     entities:
-      - light.0x000b57fffed6d66c
-      - light.0x000b57fffed5bca9
-      - light.0x000b57fffed70940
-
+      - light.ikea_lamp_1
+      - light.ikea_lamp_2
+      - light.ikea_lamp_3
 
   televisiekast:
     name: Televisiekast

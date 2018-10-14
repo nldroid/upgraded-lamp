@@ -21,10 +21,10 @@ lsub
 sudo vi /etc/udev/rules.d/99-usb-serial.rules
 # add:
 
-SUBSYSTEM=="tty", ATTRS{idVendor}=="0658", ATTRS{idProduct}=="16a8", SYMLINK+="ttyUSB_zigbee"
-SUBSYSTEM=="tty", ATTRS{idVendor}=="0451", ATTRS{idProduct}=="0200", SYMLINK+="ttyUSB_zwave"
+SUBSYSTEM=="tty", ATTRS{idVendor}=="0451", ATTRS{idProduct}=="16a8", SYMLINK+="ttyUSB_zigbee"
+SUBSYSTEM=="tty", ATTRS{idVendor}=="0658", ATTRS{idProduct}=="0200", SYMLINK+="ttyUSB_zwave"
 
-sudo udevadm trigger # or reboot needed?
+sudo udevadm trigger
 
 # Verify
 udevadm info --name=/dev/ttyUSB_zigbee --attribute-walk | less
