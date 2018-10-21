@@ -3,7 +3,7 @@ api_key: !secret google_assistant_api_key
 expose_by_default: false
 exposed_domains:
   - switch
-  - script
+#  - script
   - light
   - group
 entity_config:
@@ -19,21 +19,21 @@ entity_config:
   light.hue_white_lamp_1:
     name: Floor lamp
     expose: true
-  script.harmony_off:
-    name: Harmony off
-    expose: true
-  script.jukebox_on:
-    name: Jukebox
-    expose: true
+#  script.harmony_off:
+#    name: Harmony off
+#    expose: true
+#  script.jukebox_on:
+#    name: Jukebox
+#    expose: true
   switch.aeotec_zw096_smart_switch_6_switch:
     name: Main power
     expose: true
-  script.music_on:
-    name: Music
-    expose: true
-  script.television_on:
-    name: Television
-    expose: true
+#  script.music_on:
+#    name: Music
+#    expose: true
+#  script.television_on:
+#    name: Television
+#    expose: true
   switch.fibaro_system_fgwpef_wall_plug_switch:
     name: Tower lamp
     expose: true
