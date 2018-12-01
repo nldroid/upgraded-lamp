@@ -133,6 +133,8 @@ updater:
 
 # Discover some devices automatically
 discovery:
+#  ignore:
+#    - igd
 
 # View all events in a logbook
 logbook:

@@ -1,16 +1,29 @@
 # Weather prediction
 #  - platform: yr
 
+#- platform: mqtt
+#  state_topic: 'location/owner/presence/b4:f1:da:64:75:66'
+#  value_template: '{{ value_json.confidence }}'
+#  unit_of_measurement: '%'
+#  name: 'Rob woonkamer'
+#- platform: mqtt
+#  state_topic: 'location/owner/presence/ac:37:43:77:b3:a2'
+#  value_template: '{{ value_json.confidence }}'
+#  unit_of_measurement: '%'
+#  name: 'Svanhild woonkamer'
+
 - platform: mqtt
-  state_topic: 'location/owner/presence/b4:f1:da:64:75:66'
-  value_template: '{{ value_json.confidence }}'
-  unit_of_measurement: '%'
-  name: 'Rob woonkamer'
+  state_topic: 'mysensors-out/169/2/1/0/1'
+  name: 'Weerhuis luchtvochtigheid'
+  unit_of_mesurement: '%'
 - platform: mqtt
-  state_topic: 'location/owner/presence/ac:37:43:77:b3:a2'
-  value_template: '{{ value_json.confidence }}'
-  unit_of_measurement: '%'
-  name: 'Svanhild woonkamer'
+  state_topic: 'mysensors-out/169/3/1/0/0'
+  name: 'Weerhuis temperatuur'
+  unit_of_measurement: '°C'
+- platform: mqtt
+  state_topic: 'mysensors-out/169/4/1/0/23'
+  name: 'Weerhuis lux'
+  unit_of_measurement: 'lux'
 
 - platform: mqtt
   state_topic: '/esp_easy_slaapkamer/co2_sensor/PPM'
@@ -68,23 +81,6 @@
   name: 'Watermeter flow'
   unit_of_measurement: 'liter'
 
-- platform: mqtt
-  state_topic: '/weatherstation/Temp'
-  name: 'Temperatuur weerstation'
-  unit_of_measurement: '°C'
-- platform: mqtt
-  state_topic: '/weatherstation/Pressure'
-  name: 'Luchtdruk weerstation'
-  unit_of_measurement: 'hPa'
-- platform: mqtt
-  state_topic: '/weatherstation/Humidity'
-  name: 'Luchtvochtigheid weerstation'
-  unit_of_measurement: '%'
-- platform: mqtt
-  state_topic: '/weatherstation/Lux'
-  name: 'Lux weerstation'
-  unit_of_measurement: 'lux'
-
 - platform: miflora
   mac: 'C4:7C:8D:64:3B:41'
   name: Dracaena marginata
@@ -107,6 +103,14 @@
 #    - temperature
 #    - conductivity
 #    - battery
+
+#- platform: template
+#  sensors:
+#    dummy_sensor:
+#      friendly_name: 'Dummy sensor voor actions'
+#      unit_of_measurement: '%'
+#      value_template: '{{ 1 }}'
+      
 
 - platform: template
   sensors:
@@ -165,8 +169,8 @@
       friendly_name: Ventilator snelheid last updated
       unit_of_measurement: 'min'
       value_template: '{{ ((as_timestamp(strptime(states.sensor.date__time.state, "%Y-%m-%d, %H:%M")) - as_timestamp(states.sensor.ventilator_snelheid.last_updated))/60)|round|int -119 }}'
-    weerstation_temperatuur_lastupdate:
-      friendly_name: Weerstation temperatuur last updated
+    weerhuis_temperatuur_lastupdate:
+      friendly_name: Weerhuis temperatuur last updated
       unit_of_measurement: 'min'
-      value_template: '{{ ((as_timestamp(strptime(states.sensor.date__time.state, "%Y-%m-%d, %H:%M")) - as_timestamp(states.sensor.temperatuur_weerstation.last_updated))/60)|round|int -119 }}'
+      value_template: '{{ ((as_timestamp(strptime(states.sensor.date__time.state, "%Y-%m-%d, %H:%M")) - as_timestamp(states.sensor.weerhuis_temperatuur.last_updated))/60)|round|int -119 }}'
 

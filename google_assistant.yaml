@@ -34,7 +34,7 @@ entity_config:
 #  script.television_on:
 #    name: Television
 #    expose: true
-  switch.fibaro_system_fgwpef_wall_plug_switch:
+  switch.neo_coolcam_switch:
     name: Tower lamp
     expose: true
 #    type: light

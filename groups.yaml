@@ -3,6 +3,7 @@
     view: yes
     entities:
       - group.woonkamer_lights
+      - group.overige_lampen
       - group.televisiekast
       - media_player.woonkamer  
       - group.harmony_state
@@ -10,7 +11,7 @@
       - media_player.jukebox
       - group.woonkamer_temperatuur
 #      - group.kerst
-      - group.weatherstation
+      - group.weerhuis
 #      - group.ventilator
 #      - group.all_co2
 
@@ -22,6 +23,7 @@
       - group.all_co2
       - group.water
       - group.deuren
+      - group.zon
 
   deuren:
     name: Deuren
@@ -42,7 +44,7 @@
       - sensor.co2_studeerkamer_lastupdate
       - sensor.watermeter_lastupdate
       - sensor.ventilator_snelheid_lastupdate
-      - sensor.weerstation_temperatuur_lastupdate
+      - sensor.weerhuis_temperatuur_lastupdate
 
   ventilator:
     name: Ventilatiesysteem
@@ -55,6 +57,11 @@
     name: Water
     entities:
       - sensor.watermeter_flow
+
+  zon:
+    name: Zon
+    entities:
+      - sun.sun
 
   planten:
     name: Planten
@@ -81,11 +88,15 @@
     entities:
       - light.hue_white_lamp_2
       - light.hue_ambiance_spot_1
-      - switch.fibaro_system_fgwpef_wall_plug_switch
-      - sensor.fibaro_system_fgwpef_wall_plug_power_2
-      - light.hue_white_lamp_1
+      - switch.neo_coolcam_switch
+      - sensor.neo_coolcam_power_plug_12a_power
       - group.ikea_lamp
       - sensor.ikea_dimmer
+
+  overige_lampen:
+    name: Overige lampen
+    entities:
+      - light.hue_white_lamp_1
 
   ikea_lamp:
     name: Ikea lamp
@@ -124,13 +135,12 @@
       - sensor.luchtdruk_woonkamer
       - sensor.sensebender_micro_2_1
 
-  weatherstation:
-    name: Weerstation
+  weerhuis:
+    name: Weerhuis
     entities:
-      - sensor.temperatuur_weerstation
-      - sensor.luchtdruk_weerstation
-      - sensor.luchtvochtigheid_weerstation
-      - sensor.lux_weerstation
+      - sensor.weerhuis_temperatuur
+      - sensor.weerhuis_luchtvochtigheid
+      - sensor.weerhuis_lux
 
   plant:
     name: Dracaena marginata

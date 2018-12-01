@@ -1,4 +1,40 @@
-- alias: Dimmer waarde`
+- id: licht_aan_bij_thuiskomst
+  alias: Licht aan bij thuiskomst
+  hide_entity: true
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.deur
+      from: 'on'
+      to: 'off'
+  condition:
+    condition: and
+    conditions:
+    - condition: sun
+      after: sunset
+    - condition: time
+      before: '21:00'
+    - condition: template
+      value_template: '{{ as_timestamp(now()) - as_timestamp(states.automation.the_last_time_the_bol_lamp_was_turned_off.attributes.last_triggered) | int > 10800 }}'
+    - condition: template
+      value_template: '{% if states.automation.the_last_time_the_bol_lamp_was_turned_off.attributes.last_triggered == none %}False{% else %}True{% endif %}'
+
+  action:
+    service: homeassistant.turn_on
+    entity_id: group.woonkamer_lights
+
+- id: last_turned_off
+  alias: The last time the bol lamp was turned off
+  trigger:
+    - platform: state
+      entity_id:  light.hue_ambiance_spot_1
+      from: 'on'
+      to: 'off'
+  action:
+    service: homeassistant.update_entity
+    entity_id: sun.sun
+
+- id: ikea_dimmer_waarde
+  alias: Dimmer waarde
   trigger:
     platform: mqtt
     topic: 'zigbee2mqtt/ikea_dimmer'
@@ -12,7 +48,8 @@
     data_template:
       brightness: '{{ states.sensor["ikea_dimmer"].state | int }}'
 
-- alias: Deur op slot
+- id: deur_op_slot
+  alias: Deur op slot
   hide_entity: true
   trigger:
     - platform: state
@@ -23,9 +60,10 @@
     service: notify.slack
     data_template:
       message: >
-        Deur op slot`
+        Deur op slot
       target: "@rob"
-- alias: Deur van slot
+- id: deur_van_slot
+  alias: Deur van slot
   hide_entity: true
   trigger:
     - platform: state
@@ -62,9 +100,6 @@
       - condition: numeric_state
         entity_id: 'sensor.ventilator_snelheid_lastupdate'
         above: 720
-#      - condition: numeric_state
-#        entity_id: 'sensor.weerstation_temperatuur_lastupdate'
-#        above: 30
   action:
     service: notify.slack
     data_template:
