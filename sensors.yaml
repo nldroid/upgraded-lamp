@@ -104,14 +104,6 @@
 #    - conductivity
 #    - battery
 
-#- platform: template
-#  sensors:
-#    dummy_sensor:
-#      friendly_name: 'Dummy sensor voor actions'
-#      unit_of_measurement: '%'
-#      value_template: '{{ 1 }}'
-      
-
 - platform: template
   sensors:
     huiskamer_hum:
@@ -152,25 +144,24 @@
     co2_woonkamer_lastupdate:
       friendly_name: Co2 sensor woonkamer last updated
       unit_of_measurement: 'min'
-      value_template: '{{ ((as_timestamp(strptime(states.sensor.date__time.state, "%Y-%m-%d, %H:%M")) - as_timestamp(states.sensor.co2_woonkamer.last_updated))/60)|round|int -119}}'
+      value_template: '{{ ((as_timestamp(now()) - as_timestamp(states.sensor.co2_woonkamer.last_updated))/60)|round}}'
     co2_slaapkamer_lastupdate:
       friendly_name: Co2 sensor slaapkamer last updated
       unit_of_measurement: 'min'
-      value_template: '{{ ((as_timestamp(strptime(states.sensor.date__time.state, "%Y-%m-%d, %H:%M")) - as_timestamp(states.sensor.co2_slaapkamer.last_updated))/60)|round|int -119 }}'
+      value_template: '{{ ((as_timestamp(now()) - as_timestamp(states.sensor.co2_slaapkamer.last_updated))/60)|round }}'
     co2_studeerkamer_lastupdate:
       friendly_name: Co2 sensor studeerkamer last updated
       unit_of_measurement: 'min'
-      value_template: '{{ ((as_timestamp(strptime(states.sensor.date__time.state, "%Y-%m-%d, %H:%M")) - as_timestamp(states.sensor.co2_studeerkamer.last_updated))/60)|round|int -119 }}'
+      value_template: '{{ ((as_timestamp(now()) - as_timestamp(states.sensor.co2_studeerkamer.last_updated))/60)|round }}'
     watermeter_lastupdate:
       friendly_name: Watermeter last updated
       unit_of_measurement: 'min'
-      value_template: '{{ ((as_timestamp(strptime(states.sensor.date__time.state, "%Y-%m-%d, %H:%M")) - as_timestamp(states.sensor.watermeter_flow.last_updated))/60)|round|int -119 }}'
+      value_template: '{{ ((as_timestamp(now()) - as_timestamp(states.sensor.watermeter_flow.last_updated))/60)|round }}'
     ventilator_snelheid_lastupdate:
       friendly_name: Ventilator snelheid last updated
       unit_of_measurement: 'min'
-      value_template: '{{ ((as_timestamp(strptime(states.sensor.date__time.state, "%Y-%m-%d, %H:%M")) - as_timestamp(states.sensor.ventilator_snelheid.last_updated))/60)|round|int -119 }}'
+      value_template: '{{ ((as_timestamp(now()) - as_timestamp(states.sensor.ventilator_snelheid.last_updated))/60)|round }}'
     weerhuis_temperatuur_lastupdate:
       friendly_name: Weerhuis temperatuur last updated
       unit_of_measurement: 'min'
-      value_template: '{{ ((as_timestamp(strptime(states.sensor.date__time.state, "%Y-%m-%d, %H:%M")) - as_timestamp(states.sensor.weerhuis_temperatuur.last_updated))/60)|round|int -119 }}'
-
+      value_template: '{{ ((as_timestamp(now()) - as_timestamp(states.sensor.weerhuis_temperatuur.last_updated))/60)|round }}'

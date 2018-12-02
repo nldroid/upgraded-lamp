@@ -1,3 +1,4 @@
+# Doe de lichten aan bij het openen van het slot als de lampen in het afgelopen uur niet aan- of uitgezet zijn
 - id: licht_aan_bij_thuiskomst
   alias: Licht aan bij thuiskomst
   hide_entity: true
@@ -14,24 +15,10 @@
     - condition: time
       before: '21:00'
     - condition: template
-      value_template: '{{ as_timestamp(now()) - as_timestamp(states.automation.the_last_time_the_bol_lamp_was_turned_off.attributes.last_triggered) | int > 10800 }}'
-    - condition: template
-      value_template: '{% if states.automation.the_last_time_the_bol_lamp_was_turned_off.attributes.last_triggered == none %}False{% else %}True{% endif %}'
-
+      value_template: '{{ (as_timestamp(now()) - as_timestamp(states.group.woonkamer_lights.last_changed)) > 3600  }}'
   action:
     service: homeassistant.turn_on
     entity_id: group.woonkamer_lights
-
-- id: last_turned_off
-  alias: The last time the bol lamp was turned off
-  trigger:
-    - platform: state
-      entity_id:  light.hue_ambiance_spot_1
-      from: 'on'
-      to: 'off'
-  action:
-    service: homeassistant.update_entity
-    entity_id: sun.sun
 
 - id: ikea_dimmer_waarde
   alias: Dimmer waarde
@@ -62,6 +49,7 @@
       message: >
         Deur op slot
       target: "@rob"
+
 - id: deur_van_slot
   alias: Deur van slot
   hide_entity: true
@@ -113,26 +101,6 @@
         Weerstation: {{ states.sensor.weerstation_temperatuur_lastupdate.state }}.
       target: "@rob"
 
-- id: kerst_aan
-  alias: Kerstlampjes aan voor zonsondergang
-  trigger:
-  - event: sunset
-    offset: -01:00:00
-    platform: sun
-  condition: []
-  action:
-  - data:
-      entity_id: group.kerst
-    service: homeassistant.turn_on
-- id: kerst_uit
-  alias: Kerstlampjes uit om 22:00:00
-  trigger:
-  - at: '22:00:00'
-    platform: time
-  action:
-  - data:
-      entity_id: group.kerst
-    service: homeassistant.turn_off
 - id: ventilator_aan
   alias: Ventilator aan
   trigger:
@@ -159,6 +127,7 @@
   action:
     - service: fan.turn_on
       entity_id: fan.ventilatiesysteem
+
 - id: ventilator_uit
   alias: Ventilator uit
   trigger:
