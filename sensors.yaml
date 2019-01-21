@@ -1,6 +1,11 @@
 # Weather prediction
 #  - platform: yr
 
+- platform: mqtt
+  name: Bridge state
+  state_topic: "zigbee2mqtt/bridge/state"
+  icon: mdi:router-wireless
+
 #- platform: mqtt
 #  state_topic: 'location/owner/presence/b4:f1:da:64:75:66'
 #  value_template: '{{ value_json.confidence }}'
@@ -15,7 +20,7 @@
 - platform: mqtt
   state_topic: 'mysensors-out/169/2/1/0/1'
   name: 'Weerhuis luchtvochtigheid'
-  unit_of_mesurement: '%'
+  unit_of_measurement: '%'
 - platform: mqtt
   state_topic: 'mysensors-out/169/3/1/0/0'
   name: 'Weerhuis temperatuur'

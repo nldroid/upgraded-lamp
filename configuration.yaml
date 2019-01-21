@@ -31,6 +31,17 @@ mqtt:
     topic: 'hass/status'
     payload: 'offline'
 
+input_boolean:
+  zigbee_permit_join:
+    name: Allow devices to join
+    initial: off
+    icon: mdi:cellphone-wireless
+
+timer:
+  zigbee_permit_join:
+    name: Time remaining
+    duration: 600
+
 logger:
   default: error
   logs:
