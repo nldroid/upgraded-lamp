@@ -110,7 +110,7 @@
     - condition: time
       before: '21:00'
     - condition: template
-      value_template: '{{ (as_timestamp(strptime(states.sensor.date__time.state, "%Y-%m-%d, %H:%M")) - as_timestamp(states.group.woonkamer_lights.last_changed)) > 3600 }}'
+      value_template: '{{ (as_timestamp(strptime(states.sensor.date_time.state, "%Y-%m-%d, %H:%M")) - as_timestamp(states.group.woonkamer_lights.last_changed)) > 3600 }}'
   action:
     service: homeassistant.turn_on
     entity_id: group.woonkamer_lights
@@ -199,7 +199,7 @@
 - id: ventilator_aan
   alias: Ventilator aan
   trigger:
-    platform: time
+    platform: time_pattern
     minutes: '/10'
     seconds: 00
   condition:
@@ -226,7 +226,7 @@
 - id: ventilator_uit
   alias: Ventilator uit
   trigger:
-    platform: time
+    platform: time_pattern
     minutes: '/10'
     seconds: 00
   condition:

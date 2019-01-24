@@ -3,11 +3,3 @@
   name: Deur
   payload_on: "1"
   payload_off: "0"
-
-- platform: mqtt
-  name: "Hallway switch"
-  state_topic: "shellies/shelly1-227683/relay/0"
-  command_topic: "shellies/shelly1-227683/relay/0/command"
-  payload_on: "on"
-  payload_off: "off"
-  retain: false

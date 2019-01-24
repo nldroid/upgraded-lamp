@@ -15,6 +15,17 @@
 #      - group.ventilator
 #      - group.all_co2
 
+  hallway:
+    name: Hallway 
+    view: yes
+    entities:
+      - group.hallway_items
+
+  hallway_items:
+    name: Switches
+    entities:
+      - switch.hallway_switch
+
   utilities:
     name: Utilities
     view: yes
