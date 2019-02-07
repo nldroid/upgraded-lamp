@@ -120,9 +120,9 @@
   ikea_lamp:
     name: Ikea lamp
     entities:
-      - light.ikea_lamp_1
-      - light.ikea_lamp_2
-      - light.ikea_lamp_3
+      - light.ikea_lamp_1_light
+      - light.ikea_lamp_2_light
+      - light.ikea_lamp_3_light
 
   televisiekast:
     name: Televisiekast

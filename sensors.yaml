@@ -1,4 +1,4 @@
-# Weather prediction
+#Weather prediction
 #  - platform: yr
 
 - platform: mqtt
@@ -120,6 +120,16 @@
   sensors:
     huiskamer:
       value_template: '{{ states.remote.huiskamer.attributes.current_activity }}'
+
+- platform: mqtt
+  name: CV Aanvoer
+  state_topic: "/ventilator/CV_Aanvoer/Temperature"
+  unit_of_measurement: '°C'
+
+- platform: mqtt
+  name: CV Afvoer
+  state_topic: "/ventilator/CV_Afvoer/Temperature"
+  unit_of_measurement: '°C'
 
 - platform: mqtt
   name: Ventilator tijd
