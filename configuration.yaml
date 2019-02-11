@@ -82,7 +82,7 @@ history:
       - sensor.sensebender_micro_1_2
       - sensor.sensebender_micro_2_1
       - sensor.sensebender_micro_2_2
-      - sensor.co2_slaapkamer
+      - sensor.slaapkamer_mh_z19_co2_waarde
       - sensor.watermeter_flow
 
 history_graph:
@@ -91,7 +91,7 @@ history_graph:
     entities:
       - sensor.sensebender_micro_1_1
       - sensor.sensebender_micro_2_1
-      - sensor.co2_slaapkamer
+      - sensor.slaapkamer_mh_z19_co2_waarde
     hours_to_show: 240
     refresh: 60
 

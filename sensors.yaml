@@ -31,23 +31,6 @@
   unit_of_measurement: 'lux'
 
 - platform: mqtt
-  state_topic: '/esp_easy_slaapkamer/co2_sensor/PPM'
-  name: 'Co2 slaapkamer'
-  unit_of_measurement: 'ppm'
-- platform: mqtt
-  state_topic: '/esp_easy_slaapkamer/bme280/Humidity'
-  name: 'Luchtvochtigheid slaapkamer'
-  unit_of_measurement: '%'
-- platform: mqtt
-  state_topic: '/esp_easy_slaapkamer/bme280/Temperature'
-  name: 'Temperatuur slaapkamer'
-  unit_of_measurement: '°C'
-- platform: mqtt
-  state_topic: '/esp_easy_slaapkamer/bme280/Pressure'
-  name: 'Luchtdruk slaapkamer'
-  unit_of_measurement: 'hPa'
-
-- platform: mqtt
   state_topic: '/esp_easy_woonkamer/co2_sensor/PPM'
   name: 'Co2 woonkamer'
   unit_of_measurement: 'ppm'
@@ -164,7 +147,7 @@
     co2_slaapkamer_lastupdate:
       friendly_name: Co2 sensor slaapkamer last updated
       unit_of_measurement: 'min'
-      value_template: '{{ ((as_timestamp(strptime(states.sensor.date_time.state, "%Y-%m-%d, %H:%M")) - as_timestamp(states.sensor.co2_slaapkamer.last_updated))/60)|round|int -59 }}'
+      value_template: '{{ ((as_timestamp(strptime(states.sensor.date_time.state, "%Y-%m-%d, %H:%M")) - as_timestamp(states.sensor.slaapkamer_mh_z19_co2_waarde.last_updated))/60)|round|int -59 }}'
     co2_studeerkamer_lastupdate:
       friendly_name: Co2 sensor studeerkamer last updated
       unit_of_measurement: 'min'

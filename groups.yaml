@@ -202,10 +202,10 @@
   slaapkamer_temperatuur:
     name: Temperatuur en Co2
     entities:
-      - sensor.temperatuur_slaapkamer
-      - sensor.luchtvochtigheid_slaapkamer
-      - sensor.co2_slaapkamer
-      - sensor.luchtdruk_studeerkamer
+      - sensor.slaapkamer_bme280_temperatuur
+      - sensor.slaapkamer_bme280_luchtvochtigheid
+      - sensor.slaapkamer_mh_z19_co2_waarde
+      - sensor.slaapkamer_bme280_luchtdruk
 
   studeerkamer_temperatuur:
     name: Temperatuur en Co2
@@ -218,7 +218,7 @@
   all_co2:
     name: Co2
     entities:
-      - sensor.co2_slaapkamer
+      - sensor.slaapkamer_mh_z19_co2_waarde
       - sensor.co2_woonkamer
       - sensor.co2_studeerkamer
 

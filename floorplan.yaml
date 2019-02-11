@@ -7,7 +7,7 @@ groups:
   - name: temp
     entities:
       - sensor.sensebender_micro_1_1
-      - sensor.temperatuur_slaapkamer
+      - sensor.slaapkamer_bme280_temperatuur
       - sensor.temperatuur_studeerkamer
       - sensor.sensebender_micro_2_1
     text_template: '${entity.state ? entity.state : "na"}°C'
@@ -15,14 +15,14 @@ groups:
   - name: ppm
     entities:
       - sensor.co2_woonkamer
-      - sensor.co2_slaapkamer
+      - sensor.slaapkamer_mh_z19_co2_waarde
       - sensor.co2_studeerkamer
     text_template: '${entity.state ? entity.state : "na"} ppm'
 
   - name: hum
     entities:
       - sensor.luchtvochtigheid_woonkamer
-      - sensor.luchtvochtigheid_slaapkamer
+      - sensor.slaapkamer_bme280_luchtvochtigheid
       - sensor.luchtvochtigheid_studeerkamer
     text_template: '${entity.state ? entity.state : "na"}%'
 

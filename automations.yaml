@@ -2,7 +2,7 @@
   alias: Cube dim lower
   trigger:
     platform: mqtt
-    topic: 'zigbee2mqtt/0x00158d000278f1dc'
+    topic: 'zigbee2mqtt/cube'
   condition:
     condition: template
     value_template: '{{ "rotate_left" == trigger.payload_json.action }}'
@@ -10,17 +10,17 @@
     service: light.turn_on
     data:
       entity_id:
-        - light.ikea_lamp_1
-        - light.ikea_lamp_2
-        - light.ikea_lamp_3
+        - light.ikea_lamp_1_light
+        - light.ikea_lamp_2_light
+        - light.ikea_lamp_3_light
     data_template:
-      brightness: '{{ states.light.ikea_lamp_1.attributes.brightness | int - 25 | int }}'
+      brightness: '{{ states.light.ikea_lamp_1_light.attributes.brightness | int - 25 | int }}'
 
 - id: cube_dim_upper
   alias: Cube dim upper
   trigger:
     platform: mqtt
-    topic: 'zigbee2mqtt/0x00158d000278f1dc'
+    topic: 'zigbee2mqtt/cube'
   condition:
     condition: template
     value_template: '{{ "rotate_right" == trigger.payload_json.action }}'
@@ -28,17 +28,17 @@
     service: light.turn_on
     data:
       entity_id:
-        - light.ikea_lamp_1
-        - light.ikea_lamp_2
-        - light.ikea_lamp_3
+        - light.ikea_lamp_1_light
+        - light.ikea_lamp_2_light
+        - light.ikea_lamp_3_light
     data_template:
-      brightness: '{{ states.light.ikea_lamp_1.attributes.brightness | int +25 | int }}'
+      brightness: '{{ states.light.ikea_lamp_1_light.attributes.brightness | int +25 | int }}'
 
 - id: toggle_woonkamer_lights
   alias: Toggle woonkamer lights
   trigger:
     platform: mqtt
-    topic: 'zigbee2mqtt/0x00158d000278f1dc'
+    topic: 'zigbee2mqtt/cube'
   condition:
     condition: template
     value_template: '{{ "shake" == trigger.payload_json.action }}'
@@ -124,9 +124,9 @@
     service: light.turn_on
     data:
       entity_id:
-        - light.ikea_lamp_1
-        - light.ikea_lamp_2
-        - light.ikea_lamp_3
+        - light.ikea_lamp_1_light
+        - light.ikea_lamp_2_light
+        - light.ikea_lamp_3_light
     data_template:
       brightness: '{{ states.sensor["ikea_dimmer"].state | int }}'
 
@@ -183,6 +183,9 @@
       - condition: numeric_state
         entity_id: 'sensor.ventilator_snelheid_lastupdate'
         above: 720
+      - condition: numeric_state
+        entity_id: 'sensor.weerstation_temperatuur_lastupdate'
+        above: 720
   action:
     service: notify.slack
     data_template:
@@ -211,7 +214,7 @@
       - condition: or
         conditions:
           - condition: numeric_state
-            entity_id: 'sensor.co2_slaapkamer'
+            entity_id: 'sensor.slaapkamer_mh_z19_co2_waarde'
             above: '600'
           - condition: numeric_state
             entity_id: 'sensor.co2_studeerkamer'
@@ -236,7 +239,7 @@
         entity_id: 'fan.ventilatiesysteem'
         state: 'on'
       - condition: numeric_state
-        entity_id: 'sensor.co2_slaapkamer'
+        entity_id: 'sensor.slaapkamer_mh_z19_co2_waarde'
         below: '600'
       - condition: numeric_state
         entity_id: 'sensor.co2_studeerkamer'
