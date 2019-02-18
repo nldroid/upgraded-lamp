@@ -217,10 +217,10 @@
             entity_id: 'sensor.slaapkamer_mh_z19_co2_waarde'
             above: '600'
           - condition: numeric_state
-            entity_id: 'sensor.co2_studeerkamer'
+            entity_id: 'sensor.studeerkamer_mh_z19_co2_waarde'
             above: '600'
           - condition: numeric_state
-            entity_id: 'sensor.co2_woonkamer'
+            entity_id: 'sensor.woonkamer_mh_z19_co2_waarde'
             above: '600'
   action:
     - service: fan.turn_on
@@ -242,10 +242,10 @@
         entity_id: 'sensor.slaapkamer_mh_z19_co2_waarde'
         below: '600'
       - condition: numeric_state
-        entity_id: 'sensor.co2_studeerkamer'
+        entity_id: 'sensor.studeerkamer_mh_z19_co2_waarde'
         below: '600'
       - condition: numeric_state
-        entity_id: 'sensor.co2_woonkamer'
+        entity_id: 'sensor.woonkamer_mh_z19_co2_waarde'
         below: '600'
   action:
     - service: fan.turn_off
