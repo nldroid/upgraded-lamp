@@ -13,6 +13,8 @@ homeassistant:
   # Customization file
   customize: !include customize.yaml
 
+system_health:
+
 panel_custom:
   - name: floorplan
     sidebar_title: Floorplan
@@ -100,12 +102,11 @@ media_player:
 #     host: 192.168.86.25
 #     name: Vu Duo2
 #     icon: mdi:satellite-variant
-
 #  - platform: enigma
 #    host: 192.168.86.25
-  - platform: cast
-    host: 192.168.86.30
-    name: Google Home Huiskamer
+#  - platform: cast
+#    host: 192.168.86.30
+#    name: Google Home Huiskamer
 
 mysensors:
   gateways:
@@ -144,8 +145,8 @@ updater:
 
 # Discover some devices automatically
 discovery:
-#  ignore:
-#    - igd
+  ignore:
+    - igd
 
 # View all events in a logbook
 logbook:

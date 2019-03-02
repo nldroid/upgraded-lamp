@@ -1,3 +1,71 @@
+- id: slaapkamer_switch_toggle
+  alias: Slaapkamer lamp toggle
+  trigger:
+    platform: mqtt
+    topic: 'zigbee2mqtt/ikea_four_button_switch'
+  condition:
+    condition: template
+    value_template: '{{ "toggle" == trigger.payload_json.action }}'
+  action:
+    service: light.toggle
+    entity_id: light.slaapkamer_light
+
+- id: slaapkamer_switch_dim_lower
+  alias: Slaapkamer lamp dim lower
+  trigger:
+    platform: mqtt
+    topic: 'zigbee2mqtt/ikea_four_button_switch'
+  condition:
+    condition: template
+    value_template: '{{ "brightness_down_click" == trigger.payload_json.action }}'
+  action:
+    service: light.turn_on
+    entity_id: light.slaapkamer_light
+    data_template:
+      brightness: '{{ states.light.slaapkamer_light.attributes.brightness | int - 25 | int }}'
+
+- id: slaapkamer_switch_dim_up
+  alias: Slaapkamer dim up
+  trigger:
+    platform: mqtt
+    topic: 'zigbee2mqtt/ikea_four_button_switch'
+  condition:
+    condition: template
+    value_template: '{{ "brightness_up_click" == trigger.payload_json.action }}'
+  action:
+    service: light.turn_on
+    entity_id: light.slaapkamer_light
+    data_template:
+      brightness: '{{ states.light.slaapkamer_light.attributes.brightness | int + 25 | int }}'
+
+- id: slaapkamer_switch_default_color
+  alias: Slaapkamer lamp default kleur
+  trigger:
+    platform: mqtt
+    topic: 'zigbee2mqtt/ikea_four_button_switch'
+  condition:
+    condition: template
+    value_template: '{{ "arrow_left_click" == trigger.payload_json.action }}'
+  action:
+    service: light.turn_on
+    entity_id: light.slaapkamer_light
+    data:
+      rgb_color: [255,200,118]
+
+- id: slaapkamer_switch_red
+  alias: Slaapkamer lamp maak rood
+  trigger:
+    platform: mqtt
+    topic: 'zigbee2mqtt/ikea_four_button_switch'
+  condition:
+    condition: template
+    value_template: '{{ "arrow_right_click" == trigger.payload_json.action }}'
+  action:
+    service: light.turn_on
+    entity_id: light.slaapkamer_light
+    data:
+      rgb_color: [255,39,39]
+
 - id: cube_dim_lower
   alias: Cube dim lower
   trigger:

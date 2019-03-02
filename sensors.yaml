@@ -52,7 +52,12 @@
 - platform: template
   sensors:
     huiskamer:
-      value_template: '{{ states.remote.huiskamer.attributes.current_activity }}'
+      value_template: >
+        {% if states.remote.huiskamer %}
+          {{ state_attr('remote.huiskamer','current_activity') }}
+        {% else %}
+          Onbekend
+        {% endif %}
 
 - platform: mqtt
   name: CV Aanvoer
