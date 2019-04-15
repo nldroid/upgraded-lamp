@@ -19,17 +19,31 @@
   name: 'Weerhuis lux'
   unit_of_measurement: 'lux'
 
-- platform: miflora
-  mac: 'C4:7C:8D:64:3B:41'
-  name: Dracaena marginata
-  force_update: false
-  median: 3
-  monitored_conditions:
-    - moisture
-    - light
-    - temperature
-    - conductivity
-    - battery
+- platform: mqtt
+  state_topic: 'mysensors-out/168/2/1/0/1'
+  name: 'Buiten luchtvochtigheid'
+  unit_of_measurement: '%'
+- platform: mqtt
+  state_topic: 'mysensors-out/168/3/1/0/0'
+  name: 'Buiten temperatuur'
+  unit_of_measurement: '°C'
+  #- platform: mqtt
+  #state_topic: 'mysensors-out/169/4/1/0/23'
+  #name: 'Weerhuis lux'
+  #unit_of_measurement: 'lux'
+
+
+  #- platform: miflora
+  #  mac: 'C4:7C:8D:64:3B:41'
+  #  name: Dracaena marginata
+  #  force_update: false
+  #  median: 3
+  #  monitored_conditions:
+  #    - moisture
+  #    - light
+  #    - temperature
+  #    - conductivity
+  #   - battery
 #- platform: miflora
 #  mac: 'C4:7C:8D:64:45:97'
 #  name: Picea abies
@@ -42,12 +56,12 @@
 #    - conductivity
 #    - battery
 
-- platform: template
-  sensors:
-    huiskamer_hum:
-      friendly_name: "Luchtvochtigheid huiskamer"
-      unit_of_measurement: '%'
-      value_template: "{{ states.sensor.sensebender_micro_1_2.state | int - 10 }}"
+  #- platform: template
+  #  sensors:
+  #    huiskamer_hum:
+  #      friendly_name: "Luchtvochtigheid huiskamer"
+  #      unit_of_measurement: '%'
+  #      value_template: "{{ states.sensor.sensebender_micro_1_2.state | int - 10 }}"
 
 - platform: template
   sensors:
@@ -98,24 +112,24 @@
     co2_woonkamer_lastupdate:
       friendly_name: Co2 sensor woonkamer last updated
       unit_of_measurement: 'min'
-      value_template: '{{ ((as_timestamp(strptime(states.sensor.date_time.state, "%Y-%m-%d, %H:%M")) - as_timestamp(states.sensor.woonkamer_mh_z19_co2_waarde.last_updated))/60)|round|int -59}}'
+      value_template: '{{ ((as_timestamp(strptime(states.sensor.date_time.state, "%Y-%m-%d, %H:%M")) - as_timestamp(as_timestamp(states.sensor.woonkamer_mh_z19_co2_waarde.last_updated) | timestamp_local))/60)|round|int }}'
     co2_slaapkamer_lastupdate:
       friendly_name: Co2 sensor slaapkamer last updated
       unit_of_measurement: 'min'
-      value_template: '{{ ((as_timestamp(strptime(states.sensor.date_time.state, "%Y-%m-%d, %H:%M")) - as_timestamp(states.sensor.slaapkamer_mh_z19_co2_waarde.last_updated))/60)|round|int -59 }}'
+      value_template: '{{ ((as_timestamp(strptime(states.sensor.date_time.state, "%Y-%m-%d, %H:%M")) - as_timestamp(as_timestamp(states.sensor.slaapkamer_mh_z19_co2_waarde.last_updated) | timestamp_local))/60)|round|int }}'
     co2_studeerkamer_lastupdate:
       friendly_name: Co2 sensor studeerkamer last updated
       unit_of_measurement: 'min'
-      value_template: '{{ ((as_timestamp(strptime(states.sensor.date_time.state, "%Y-%m-%d, %H:%M")) - as_timestamp(states.sensor.studeerkamer_mh_z19_co2_waarde.last_updated))/60)|round|int -59 }}'
+      value_template: '{{ ((as_timestamp(strptime(states.sensor.date_time.state, "%Y-%m-%d, %H:%M")) - as_timestamp(as_timestamp(states.sensor.studeerkamer_mh_z19_co2_waarde.last_updated) | timestamp_local))/60)|round|int  }}'
     watermeter_lastupdate:
       friendly_name: Watermeter last updated
       unit_of_measurement: 'min'
-      value_template: '{{ ((as_timestamp(strptime(states.sensor.date_time.state, "%Y-%m-%d, %H:%M")) - as_timestamp(states.sensor.watermeter.last_updated))/60)|round|int -59 }}'
+      value_template: '{{ ((as_timestamp(strptime(states.sensor.date_time.state, "%Y-%m-%d, %H:%M")) - as_timestamp(as_timestamp(states.sensor.watermeter.last_updated) | timestamp_local))/60)|round|int }}'
     ventilator_snelheid_lastupdate:
       friendly_name: Ventilator snelheid last updated
       unit_of_measurement: 'min'
-      value_template: '{{ ((as_timestamp(strptime(states.sensor.date_time.state, "%Y-%m-%d, %H:%M")) - as_timestamp(states.sensor.ventilator_snelheid.last_updated))/60)|round|int -59 }}'
+      value_template: '{{ ((as_timestamp(strptime(states.sensor.date_time.state, "%Y-%m-%d, %H:%M")) - as_timestamp(as_timestamp(states.sensor.ventilator_snelheid.last_updated) | timestamp_local))/60)|round|int }}'
     weerhuis_temperatuur_lastupdate:
       friendly_name: Weerhuis temperatuur last updated
       unit_of_measurement: 'min'
-      value_template: '{{ ((as_timestamp(strptime(states.sensor.date_time.state, "%Y-%m-%d, %H:%M")) - as_timestamp(states.sensor.weerhuis_temperatuur.last_updated))/60)|round|int -59 }}'
+      value_template: '{{ ((as_timestamp(strptime(states.sensor.date_time.state, "%Y-%m-%d, %H:%M")) - as_timestamp(as_timestamp(states.sensor.weerhuis_temperatuur.last_updated) | timestamp_local))/60)|round|int }}'

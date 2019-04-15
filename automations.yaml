@@ -1,3 +1,15 @@
+- id: slaapkamer_wall_switch_click
+  alias: Slaapkamer lamp toggle
+  trigger:
+    platform: mqtt
+    topic: 'zigbee2mqtt/slaapkamer_wall_switch'
+  condition:
+    condition: template
+    value_template: '{{ "single" == trigger.payload_json.click }}'
+  action:
+    service: light.toggle
+    entity_id: light.slaapkamer_light
+
 - id: slaapkamer_switch_toggle
   alias: Slaapkamer lamp toggle
   trigger:

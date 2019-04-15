@@ -15,6 +15,8 @@ homeassistant:
 
 system_health:
 
+api:
+
 panel_custom:
   - name: floorplan
     sidebar_title: Floorplan
@@ -108,15 +110,15 @@ media_player:
 #    host: 192.168.86.30
 #    name: Google Home Huiskamer
 
-mysensors:
-  gateways:
-    - device: '127.0.0.1'
-      persistence_file: '/home/homeassistant/.homeassistant/mysensors/mysensors.json'
-      tcp_port: 5003
-  optimistic: false
-  persistence: true
-  retain: true
-  version: '2.0'
+#mysensors:
+#  gateways:
+#    - device: '127.0.0.1'
+#      persistence_file: '/home/homeassistant/.homeassistant/mysensors/mysensors.json'
+#      tcp_port: 5003
+#  optimistic: false
+#  persistence: true
+#  retain: true
+#  version: '2.0'
 
 # Show links to resources in log and frontend
 #introduction:

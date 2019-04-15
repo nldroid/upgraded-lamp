@@ -8,7 +8,7 @@ WorkingDirectory=/opt/zigbee2mqtt
 StandardOutput=inherit
 StandardError=inherit
 Restart=always
-User=pi
+User=rob
 
 [Install]
 WantedBy=multi-user.target
