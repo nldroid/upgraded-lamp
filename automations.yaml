@@ -257,9 +257,9 @@
       - condition: numeric_state
         entity_id: 'sensor.co2_studeerkamer_lastupdate'
         above: 30
-      - condition: numeric_state
-        entity_id: 'sensor.watermeter_lastupdate'
-        above: 720
+        #      - condition: numeric_state
+        #        entity_id: 'sensor.watermeter_lastupdate'
+        #        above: 720
       - condition: numeric_state
         entity_id: 'sensor.ventilator_snelheid_lastupdate'
         above: 720
