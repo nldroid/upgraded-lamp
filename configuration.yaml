@@ -161,7 +161,8 @@ sun:
 
 # Text to speech
 tts:
-  - platform: google
+  - platform: google_translate
+    service_name: google_say
 
 #rflink:
 #  port: /dev/serial/by-id/usb-Arduino__www.arduino.cc__0042_55639313433351717151-if00
