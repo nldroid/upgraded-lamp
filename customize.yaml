@@ -1,3 +1,9 @@
+sensor.woonkamer_bme280_temperatuur:
+  device_class: temperature
+sensor.slaapkamer_bme280_temperatuur:
+  device_class: temperature
+sensor.studeerkamer_bme280_temperatuur:
+  device_class: temperature
 media_player.woonkamer:
   friendly_name: Squeezebox Woonkamer
 configurator.philips_hue:

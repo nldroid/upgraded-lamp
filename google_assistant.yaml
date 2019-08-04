@@ -6,7 +6,21 @@ exposed_domains:
 #  - script
   - light
   - group
+  - sensor
+  - climate
 entity_config:
+  sensor.woonkamer_bme280_temperatuur:
+    name: Living room temperature
+    room: Living room
+    expose: true
+  sensor.studeerkamer_bme280_temperatuur:
+    name: Office temperature
+    room: Office
+    expose: true
+  sensor.slaapkamer_bme280_temperatuur:
+    name: Bedroom temperature
+    room: Bedroom
+    expose: true
   light.hue_white_lamp_2:
     name: Arch
     expose: true
