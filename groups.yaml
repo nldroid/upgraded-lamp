@@ -106,11 +106,9 @@
     name: Woonkamer lichten  
     entities:
       - light.hue_white_lamp_2
-      - light.hue_ambiance_spot_1
+      - light.bol_lamp
       - switch.neo_coolcam_switch
-      - sensor.neo_coolcam_power_plug_12a_power
       - group.ikea_lamp
-      - sensor.ikea_dimmer
 
   overige_lampen:
     name: Overige lampen
