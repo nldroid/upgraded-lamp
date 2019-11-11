@@ -69,3 +69,5 @@ sensor.luchtdruk_weerstation:
   friendly_name: Luchtdruk
 zwave.neo_coolcam:
   node_name: Tower Lamp Switch
+light.ikea_trio:
+  friendly_name: Ikea trio
