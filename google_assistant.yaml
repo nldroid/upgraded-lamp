@@ -27,7 +27,7 @@ entity_config:
 #  switch.lampjes_buiten_switch:
 #    name: Balcony lights
 #    expose: true
-  light.hue_ambiance_spot_1:
+  light.bol_lamp:
     name: Bol lamp
     expose: true
   light.hue_white_lamp_1:
