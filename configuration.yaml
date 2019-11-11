@@ -180,6 +180,12 @@ tts:
 #  port: /dev/serial/by-id/usb-Arduino__www.arduino.cc__0042_55639313433351717151-if00
 
 light:
+  - platform: mqtt
+    schema: json
+    name: ikea_trio
+    command_topic: "zigbee2mqtt/ikea_trio/set"
+    state_topic: "zigbee2mqtt/ikea_trio"
+    brightness: true
   - platform: hue
     host: 192.168.86.75
     filename: phue.conf
