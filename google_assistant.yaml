@@ -21,7 +21,7 @@ entity_config:
     name: Bedroom temperature
     room: Bedroom
     expose: true
-  light.hue_white_lamp_2:
+  light.arch_lamp:
     name: Arch
     expose: true
 #  switch.lampjes_buiten_switch:
@@ -30,7 +30,7 @@ entity_config:
   light.bol_lamp:
     name: Bol lamp
     expose: true
-  light.hue_white_lamp_1:
+  light.floor_lamp:
     name: Floor lamp
     expose: true
 #  script.harmony_off:

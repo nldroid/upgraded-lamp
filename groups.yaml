@@ -105,7 +105,7 @@
   woonkamer_lights:
     name: Woonkamer lichten  
     entities:
-      - light.hue_white_lamp_2
+      - light.arch_lamp
       - light.bol_lamp
       - switch.neo_coolcam_switch
       - group.ikea_lamp
