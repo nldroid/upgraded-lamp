@@ -88,18 +88,27 @@ influxdb:
   host: !secret influxdb_host
   default_measurement: state
   include:
-    domains:
-      - sensor 
+    entities:
+      - sensor.actual_consumption_sensor
+      - sensor.consumption_low_tarif_sensor
+      - sensor.gas_meter_m3_sensor
+      - sensor.slaapkamer_bme280_luchtvochtigheid
+      - sensor.slaapkamer_bme280_temperatuur
+      - sensor.slaapkamer_mh_z19_co2_waarde
+      - sensor.studeerkamer_bme280_luchtvochtigheid
+      - sensor.studeerkamer_bme280_temperatuur
+      - sensor.studeerkamer_mh_z19_co2_waarde
+      - sensor.woonkamer_bme280_luchtvochtigheid
+      - sensor.woonkamer_bme280_temperatuur
+      - sensor.woonkamer_mh_z19_co2_waarde
+      - sensor.buiten_temperatuur
+      - sensor.watermeter
 
 history:
   include:
     entities:
-      - sensor.sensebender_micro_1_1
-      - sensor.sensebender_micro_1_2
-      - sensor.sensebender_micro_2_1
-      - sensor.sensebender_micro_2_2
       - sensor.slaapkamer_mh_z19_co2_waarde
-      - sensor.watermeter_flow
+      - sensor.watermeter
 
 history_graph:
   gr1:
