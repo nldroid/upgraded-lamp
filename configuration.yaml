@@ -195,9 +195,6 @@ light:
     command_topic: "zigbee2mqtt/ikea_trio/set"
     state_topic: "zigbee2mqtt/ikea_trio"
     brightness: true
-  - platform: hue
-    host: 192.168.86.75
-    filename: phue.conf
 
 zwave:
   usb_path: /dev/ttyUSB_zwave
