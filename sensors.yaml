@@ -2,6 +2,17 @@
 #  - platform: yr
 
 - platform: mqtt
+  name: Octoprint printing progress
+  state_topic: "octoPrint/progress/printing"
+  value_template: "{{ value_json.progress }}"
+  unit_of_measurement: '%'
+
+- platform: mqtt
+  name: Octoprint printer status
+  state_topic: "octoPrint/event/PrinterStateChanged"
+  value_template: "{{ value_json.state_string }}"
+
+- platform: mqtt
   name: Zigbee2mqtt Networkmap
   # if you change base_topic of Zigbee2mqtt, change state_topic accordingly
   state_topic: zigbee2mqtt/bridge/networkmap/raw
