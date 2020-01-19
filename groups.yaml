@@ -7,7 +7,6 @@
       - group.televisiekast
       - media_player.woonkamer  
       - group.harmony_state
-      - media_player.duo2
       - media_player.jukebox
       - group.woonkamer_temperatuur
 #      - group.kerst
@@ -99,7 +98,6 @@
     name: Studeerkamer
     view: yes
     entities:
-      - media_player.studeerkamer
       - group.studeerkamer_temperatuur
 
   woonkamer_lights:
@@ -176,11 +174,6 @@
 #      - sensor.picea_abies_light_intensity
 #      - sensor.picea_abies_moisture
 #      - sensor.picea_abies_temperature
-
-  vu_duo2:
-    name: Vu Duo2
-    entities:
-      - media_player.vu_duo2
 
 #  kerst:
 #    name: Kerst
