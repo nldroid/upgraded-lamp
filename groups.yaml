@@ -1,6 +1,5 @@
   default_view:
     name: Woonkamer
-    view: yes
     entities:
       - group.woonkamer_lights
       - group.overige_lampen
@@ -16,7 +15,6 @@
 
   hallway:
     name: Hallway 
-    view: yes
     entities:
       - group.hallway_items
 
@@ -27,7 +25,6 @@
 
   utilities:
     name: Utilities
-    view: yes
     entities:
       - group.ventilator
       - group.all_co2
@@ -50,7 +47,6 @@
 
   statusinfo:
     name: Status info
-    view: yes
     entities:
       - group.lastupdated
 
@@ -83,20 +79,17 @@
 
   planten:
     name: Planten
-    view: yes
     entities:
       - group.plant
 #      - group.picea
 
   slaapkamer:
     name: Slaapkamer
-    view: yes
     entities:
       - group.slaapkamer_temperatuur
 
   studeerkamer:
     name: Studeerkamer
-    view: yes
     entities:
       - group.studeerkamer_temperatuur
 
