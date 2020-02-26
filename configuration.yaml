@@ -110,16 +110,6 @@ history:
       - sensor.slaapkamer_mh_z19_co2_waarde
       - sensor.watermeter
 
-history_graph:
-  gr1:
-    name: Lights Graph
-    entities:
-      - sensor.sensebender_micro_1_1
-      - sensor.sensebender_micro_2_1
-      - sensor.slaapkamer_mh_z19_co2_waarde
-    hours_to_show: 240
-    refresh: 60
-
 #media_player:
 #   - platform: enigma2
 #     host: 192.168.86.25
