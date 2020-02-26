@@ -91,35 +91,45 @@
 - id: cube_dim_lower
   alias: Cube dim lower
   trigger:
-    platform: mqtt
+  - platform: mqtt
     topic: zigbee2mqtt/cube_woonkamer
   condition:
-    condition: template
+  - condition: template
     value_template: '{{ "rotate_left" == trigger.payload_json.action }}'
   action:
-    service: light.turn_on
-    data:
-      entity_id:
-      - light.ikea_trio
-    data_template:
-      brightness: '{{ states.light.ikea_lamp_1_light.attributes.brightness | int -
-        25 | int }}'
+  - device_id: 3be62dd9f8e246b1a9a2ba0759bfd820
+    domain: light
+    entity_id: light.ikea_lamp_1_light
+    type: brightness_decrease
+  - device_id: d9acf390484542b684e865060e74236c
+    domain: light
+    entity_id: light.ikea_lamp_2_light
+    type: brightness_decrease
+  - device_id: 32adab2b2ea849218b1b741a2b6b0c61
+    domain: light
+    entity_id: light.ikea_lamp_3_light
+    type: brightness_decrease
 - id: cube_dim_upper
   alias: Cube dim upper
   trigger:
-    platform: mqtt
+  - platform: mqtt
     topic: zigbee2mqtt/cube_woonkamer
   condition:
-    condition: template
+  - condition: template
     value_template: '{{ "rotate_right" == trigger.payload_json.action }}'
   action:
-    service: light.turn_on
-    data:
-      entity_id:
-      - light.ikea_trio
-    data_template:
-      brightness: '{{ states.light.ikea_lamp_1_light.attributes.brightness | int +25
-        | int }}'
+  - device_id: 3be62dd9f8e246b1a9a2ba0759bfd820
+    domain: light
+    entity_id: light.ikea_lamp_1_light
+    type: brightness_increase
+  - device_id: d9acf390484542b684e865060e74236c
+    domain: light
+    entity_id: light.ikea_lamp_2_light
+    type: brightness_increase
+  - device_id: 32adab2b2ea849218b1b741a2b6b0c61
+    domain: light
+    entity_id: light.ikea_lamp_3_light
+    type: brightness_increase
 - id: toggle_woonkamer_lights
   alias: Toggle woonkamer lights
   trigger:
@@ -133,7 +143,6 @@
     service: homeassistant.toggle
 - id: enable_zigbee_join
   alias: Enable Zigbee joining
-  hide_entity: true
   trigger:
     platform: state
     entity_id: input_boolean.zigbee_permit_join
@@ -160,10 +169,8 @@
   - data:
       entity_id: timer.zigbee_permit_join
     service: timer.cancel
-  hide_entity: true
 - id: disable_zigbee_join_timer
   alias: Disable Zigbee joining by timer
-  hide_entity: true
   trigger:
   - platform: event
     event_type: timer.finished
@@ -179,7 +186,6 @@
       entity_id: input_boolean.zigbee_permit_join
 - id: licht_aan_bij_thuiskomst
   alias: Licht aan bij thuiskomst
-  hide_entity: true
   trigger:
   - platform: state
     entity_id: binary_sensor.deur
@@ -216,7 +222,6 @@
       brightness: '{{ states("sensor.ikea_dimmer_brightness") | int }}'
 - id: deur_op_slot
   alias: Deur op slot
-  hide_entity: true
   trigger:
   - platform: state
     entity_id: binary_sensor.deur
@@ -231,7 +236,6 @@
       target: '#deur'
 - id: deur_van_slot
   alias: Deur van slot
-  hide_entity: true
   trigger:
   - platform: state
     entity_id: binary_sensor.deur
