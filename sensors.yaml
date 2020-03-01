@@ -13,6 +13,18 @@
   value_template: "{{ value_json.state_string }}"
 
 - platform: mqtt
+  name: Octoprint bed temperature
+  state_topic: "octoPrint/temperature/bed"
+  value_template: "{{ value_json.actual}}"
+  unit_of_measurement: '°C'
+
+- platform: mqtt
+  name: Octoprint nozzle temperature
+  state_topic: "octoPrint/temperature/tool0"
+  value_template: "{{ value_json.actual}}"
+  unit_of_measurement: '°C'
+
+- platform: mqtt
   name: Zigbee2mqtt Networkmap
   # if you change base_topic of Zigbee2mqtt, change state_topic accordingly
   state_topic: zigbee2mqtt/bridge/networkmap/raw
