@@ -1,3 +1,9 @@
 switch.switch:
   ignored: false
   polling_intensity: 0
+sensor.aeon_labs_zw096_smart_switch_6_power:
+  ignored: false
+  polling_intensity: 5
+sensor.neo_coolcam_power_plug_12a_power:
+  ignored: false
+  polling_intensity: 5
