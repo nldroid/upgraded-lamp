@@ -1,33 +1,39 @@
 - id: slaapkamer_wall_switch_click
-  alias: Slaapkamer lamp toggle
+  alias: Slaapkamer lamp toggle by wall switch
   trigger:
-    platform: mqtt
-    topic: zigbee2mqtt/slaapkamer_wall_switch
-  condition:
-    condition: template
-    value_template: '{{ "single" == trigger.payload_json.click }}'
+  - device_id: f3ea00de61fc471fb2a1b362a9c540b7
+    discovery_id: 0x00158d0002cb71ef click_single
+    domain: mqtt
+    platform: device
+    subtype: single
+    type: click
+  condition: []
   action:
+  - entity_id: light.slaapkamer_light
     service: light.toggle
-    entity_id: light.slaapkamer_light
 - id: slaapkamer_switch_toggle
-  alias: Slaapkamer lamp toggle
+  alias: Slaapkamer lamp toggle by cube shake
   trigger:
-    platform: mqtt
-    topic: zigbee2mqtt/cube_slaapkamer
-  condition:
-    condition: template
-    value_template: '{{ "shake" == trigger.payload_json.action }}'
+  - device_id: 1a392f4db3154ec698b0b45be60a43ce
+    discovery_id: 0x00158d00029bf642 action_shake
+    domain: mqtt
+    platform: device
+    subtype: shake
+    type: action
+  condition: []
   action:
+  - entity_id: light.slaapkamer_light
     service: light.toggle
-    entity_id: light.slaapkamer_light
 - id: slaapkamer_switch_dim_lower
-  alias: Slaapkamer lamp dim lower
+  alias: Slaapkamer lamp dim lower by cube
   trigger:
-  - platform: mqtt
-    topic: zigbee2mqtt/cube_slaapkamer
-  condition:
-  - condition: template
-    value_template: '{{ "rotate_left" == trigger.payload_json.action }}'
+  - device_id: 1a392f4db3154ec698b0b45be60a43ce
+    discovery_id: 0x00158d00029bf642 action_rotate_left
+    domain: mqtt
+    platform: device
+    subtype: rotate_left
+    type: action
+  condition: []
   action:
   - data_template:
       brightness: '{{ states.light.slaapkamer_light.attributes.brightness | int -
@@ -35,13 +41,15 @@
     entity_id: light.slaapkamer_light
     service: light.turn_on
 - id: slaapkamer_switch_dim_up
-  alias: Slaapkamer lamp dim up
+  alias: Slaapkamer lamp dim up by cube
   trigger:
-  - platform: mqtt
-    topic: zigbee2mqtt/cube_slaapkamer
-  condition:
-  - condition: template
-    value_template: '{{ "rotate_right" == trigger.payload_json.action }}'
+  - device_id: 1a392f4db3154ec698b0b45be60a43ce
+    discovery_id: 0x00158d00029bf642 action_rotate_right
+    domain: mqtt
+    platform: device
+    subtype: rotate_right
+    type: action
+  condition: []
   action:
   - data_template:
       brightness: '{{ states.light.slaapkamer_light.attributes.brightness | int +
@@ -49,53 +57,55 @@
     entity_id: light.slaapkamer_light
     service: light.turn_on
 - id: slaapkamer_switch_default_color
-  alias: Slaapkamer lamp default kleur
+  alias: Slaapkamer lamp default kleur by cube 180 flip
   trigger:
-    platform: mqtt
-    topic: zigbee2mqtt/cube_slaapkamer
+  - device_id: 1a392f4db3154ec698b0b45be60a43ce
+    discovery_id: 0x00158d00029bf642 action_flip180
+    domain: mqtt
+    platform: device
+    subtype: flip180
+    type: action
   condition:
-    condition: and
-    conditions:
-    - condition: template
-      value_template: '{{ "flip180" == trigger.payload_json.action }}'
-    - condition: template
-      value_template: '{{ states.light.slaapkamer_light.attributes.rgb_color != (255,198,118)}}'
+  - condition: template
+    value_template: '{{ states.light.slaapkamer_light.attributes.rgb_color != (255,198,118)}}'
   action:
-    service: light.turn_on
-    entity_id: light.slaapkamer_light
-    data:
+  - data:
       rgb_color:
       - 255
       - 200
       - 118
-- id: slaapkamer_switch_red
-  alias: Slaapkamer lamp maak rood
-  trigger:
-    platform: mqtt
-    topic: zigbee2mqtt/cube_slaapkamer
-  condition:
-    condition: and
-    conditions:
-    - condition: template
-      value_template: '{{ "flip180" == trigger.payload_json.action }}'
-    - condition: template
-      value_template: '{{ states.light.slaapkamer_light.attributes.rgb_color == (255,198,118)}}'
-  action:
-    service: light.turn_on
     entity_id: light.slaapkamer_light
-    data:
+    service: light.turn_on
+- id: slaapkamer_switch_red
+  alias: Slaapkamer lamp maak rood by cube 180 flip
+  trigger:
+  - device_id: 1a392f4db3154ec698b0b45be60a43ce
+    discovery_id: 0x00158d00029bf642 action_flip180
+    domain: mqtt
+    platform: device
+    subtype: flip180
+    type: action
+  condition:
+  - condition: template
+    value_template: '{{ "flip180" == trigger.payload_json.action }}'
+  action:
+  - data:
       rgb_color:
       - 255
       - 38
       - 38
+    entity_id: light.slaapkamer_light
+    service: light.turn_on
 - id: cube_dim_lower
-  alias: Cube dim lower
+  alias: Ikea trio dim lower by cube
   trigger:
-  - platform: mqtt
-    topic: zigbee2mqtt/cube_woonkamer
-  condition:
-  - condition: template
-    value_template: '{{ "rotate_left" == trigger.payload_json.action }}'
+  - device_id: 6e69e7e532be4926a98017418b028a18
+    discovery_id: 0x00158d000278f1dc action_rotate_left
+    domain: mqtt
+    platform: device
+    subtype: rotate_left
+    type: action
+  condition: []
   action:
   - device_id: 3be62dd9f8e246b1a9a2ba0759bfd820
     domain: light
@@ -110,13 +120,15 @@
     entity_id: light.ikea_lamp_3_light
     type: brightness_decrease
 - id: cube_dim_upper
-  alias: Cube dim upper
+  alias: Ikea trio dim up by cube
   trigger:
-  - platform: mqtt
-    topic: zigbee2mqtt/cube_woonkamer
-  condition:
-  - condition: template
-    value_template: '{{ "rotate_right" == trigger.payload_json.action }}'
+  - device_id: 6e69e7e532be4926a98017418b028a18
+    discovery_id: 0x00158d000278f1dc action_rotate_right
+    domain: mqtt
+    platform: device
+    subtype: rotate_right
+    type: action
+  condition: []
   action:
   - device_id: 3be62dd9f8e246b1a9a2ba0759bfd820
     domain: light
@@ -131,15 +143,17 @@
     entity_id: light.ikea_lamp_3_light
     type: brightness_increase
 - id: toggle_woonkamer_lights
-  alias: Toggle woonkamer lights
+  alias: Toggle woonkamer lights by cube shake
   trigger:
-  - platform: mqtt
-    topic: zigbee2mqtt/cube_woonkamer
-  condition:
-  - condition: template
-    value_template: '{{ "shake" == trigger.payload_json.action }}'
+  - device_id: 6e69e7e532be4926a98017418b028a18
+    discovery_id: 0x00158d000278f1dc action_shake
+    domain: mqtt
+    platform: device
+    subtype: shake
+    type: action
+  condition: []
   action:
-    entity_id: group.woonkamer_lights
+  - entity_id: group.woonkamer_lights
     service: homeassistant.toggle
 - id: enable_zigbee_join
   alias: Enable Zigbee joining
@@ -206,20 +220,22 @@
     service: homeassistant.turn_on
     entity_id: group.woonkamer_lights
 - id: ikea_dimmer_waarde
-  alias: Dimmer waarde
+  alias: Ikea trio dimmer
   trigger:
-    platform: mqtt
-    topic: zigbee2mqtt/ikea_dimmer
-  condition:
-    condition: template
-    value_template: '{{ "rotate_stop" == trigger.payload_json.action }}'
+  - device_id: c25c9143943c4b9fb1b53430ce30efc1
+    discovery_id: 0x000b57fffe902bb0 action_rotate_stop
+    domain: mqtt
+    platform: device
+    subtype: rotate_stop
+    type: action
+  condition: []
   action:
-    service: light.turn_on
-    data:
+  - data:
       entity_id:
       - light.ikea_trio
     data_template:
       brightness: '{{ states("sensor.ikea_dimmer_brightness") | int }}'
+    service: light.turn_on
 - id: deur_op_slot
   alias: Deur op slot
   trigger:
