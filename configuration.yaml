@@ -60,8 +60,8 @@ timer:
 
 logger:
   default: error
-  logs:
-    homeassistant.components.zwave: critical
+#  logs:
+#    homeassistant.components.zwave: critical
 
 recorder:
   purge_interval: 1
@@ -186,12 +186,12 @@ light:
     state_topic: "zigbee2mqtt/ikea_trio"
     brightness: true
 
-zwave:
-  usb_path: /dev/ttyUSB_zwave
-  network_key: !secret zwave_network_key
-  device_config:
-    sensor.aeotec_zw096_smart_switch_6_power:
-      polling_intensity: 1
+#zwave:
+#  usb_path: /dev/ttyUSB_zwave
+#  network_key: !secret zwave_network_key
+#  device_config:
+#    sensor.aeotec_zw096_smart_switch_6_power:
+#      polling_intensity: 1
 
 google_assistant: !include google_assistant.yaml
 sensor: !include sensors.yaml

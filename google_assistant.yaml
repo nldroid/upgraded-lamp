@@ -1,4 +1,5 @@
 project_id: !secret google_assistant_project_id
+service_account: !include google_service_account.json
 #api_key: !secret google_assistant_api_key
 expose_by_default: false
 exposed_domains:
@@ -39,7 +40,7 @@ entity_config:
 #  script.jukebox_on:
 #    name: Jukebox
 #    expose: true
-  switch.aeotec_zw096_smart_switch_6_switch:
+  switch.coolcam_plug_1_relay:
     name: Main power
     expose: true
 #  script.music_on:
@@ -48,7 +49,7 @@ entity_config:
 #  script.television_on:
 #    name: Television
 #    expose: true
-  switch.neo_coolcam_switch:
+  switch.coolcam_plug_2_relay:
     name: Tower lamp
     expose: true
 #    type: light
