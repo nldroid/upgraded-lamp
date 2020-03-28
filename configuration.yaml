@@ -14,6 +14,7 @@ homeassistant:
   customize: !include customize.yaml
 
   auth_providers:
+    - type: homeassistant
     - type: legacy_api_password
       api_password: !secret http_password
 
@@ -185,13 +186,6 @@ light:
     command_topic: "zigbee2mqtt/ikea_trio/set"
     state_topic: "zigbee2mqtt/ikea_trio"
     brightness: true
-
-#zwave:
-#  usb_path: /dev/ttyUSB_zwave
-#  network_key: !secret zwave_network_key
-#  device_config:
-#    sensor.aeotec_zw096_smart_switch_6_power:
-#      polling_intensity: 1
 
 google_assistant: !include google_assistant.yaml
 sensor: !include sensors.yaml
