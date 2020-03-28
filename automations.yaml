@@ -1,16 +1,14 @@
 - id: slaapkamer_wall_switch_click
-  alias: Slaapkamer lamp toggle by wall switch
+  alias: Slaapkamer lamp toggle
   trigger:
-  - device_id: f3ea00de61fc471fb2a1b362a9c540b7
-    discovery_id: 0x00158d0002cb71ef click_single
-    domain: mqtt
-    platform: device
-    subtype: single
-    type: click
-  condition: []
+    platform: mqtt
+    topic: zigbee2mqtt/slaapkamer_wall_switch
+  condition:
+    condition: template
+    value_template: '{{ "single" == trigger.payload_json.click }}'
   action:
-  - entity_id: light.slaapkamer_light
     service: light.toggle
+    entity_id: light.slaapkamer_light
 - id: slaapkamer_switch_toggle
   alias: Slaapkamer lamp toggle by cube shake
   trigger:
@@ -349,3 +347,21 @@
   action:
   - service: fan.turn_off
     entity_id: fan.ventilatiesysteem
+- id: '1584283441188'
+  alias: Light to message
+  description: ''
+  trigger:
+  - device_id: f3ea00de61fc471fb2a1b362a9c540b7
+    discovery_id: 0x00158d0002cb71ef click_single
+    domain: mqtt
+    platform: device
+    subtype: single
+    type: click
+  condition: []
+  action:
+  - data_template:
+      message: 'Slaapkamer switch
+
+        '
+      target: '#upgrading-our-lamps'
+    service: notify.slack
