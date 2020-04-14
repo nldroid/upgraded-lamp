@@ -347,21 +347,3 @@
   action:
   - service: fan.turn_off
     entity_id: fan.ventilatiesysteem
-- id: '1584283441188'
-  alias: Light to message
-  description: ''
-  trigger:
-  - device_id: f3ea00de61fc471fb2a1b362a9c540b7
-    discovery_id: 0x00158d0002cb71ef click_single
-    domain: mqtt
-    platform: device
-    subtype: single
-    type: click
-  condition: []
-  action:
-  - data_template:
-      message: 'Slaapkamer switch
-
-        '
-      target: '#upgrading-our-lamps'
-    service: notify.slack
