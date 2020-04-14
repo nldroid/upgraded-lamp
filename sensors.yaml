@@ -5,11 +5,13 @@
   state_topic: "octoPrint/progress/printing"
   value_template: "{{ value_json.progress }}"
   unit_of_measurement: '%'
+  icon: 'mdi:progress-check'
 
 - platform: mqtt
   name: Octoprint printer status
   state_topic: "octoPrint/event/PrinterStateChanged"
   value_template: "{{ value_json.state_string }}"
+  icon: 'mdi:printer-3d'
 
 - platform: mqtt
   name: Octoprint bed temperature
@@ -74,6 +76,7 @@
   state_topic: "/ventilator/itho/Timer"
   value_template: "{{value}}"
   unit_of_measurement: 's'
+
 - platform: mqtt
   name : Ventilator snelheid
   state_topic: "/ventilator/itho/State"
@@ -103,6 +106,7 @@
 - platform: template
   sensors:
     huiskamer:
+      icon_template: 'mdi:remote'
       value_template: >
         {% if states.remote.huiskamer %}
           {{ state_attr('remote.huiskamer','current_activity') }}
@@ -117,28 +121,29 @@
   sensors:
     co2_woonkamer_lastupdate:
       friendly_name: Co2 sensor woonkamer last updated
+      icon_template: 'mdi:clock-outline'
       unit_of_measurement: 'min'
       value_template: '{{ ((as_timestamp(strptime(states.sensor.date_time.state, "%Y-%m-%d, %H:%M")) - as_timestamp(as_timestamp(states.sensor.woonkamer_mh_z19_co2_waarde.last_updated) | timestamp_local))/60)|round|int }}'
     co2_slaapkamer_lastupdate:
       friendly_name: Co2 sensor slaapkamer last updated
+      icon_template: 'mdi:clock-outline'
       unit_of_measurement: 'min'
       value_template: '{{ ((as_timestamp(strptime(states.sensor.date_time.state, "%Y-%m-%d, %H:%M")) - as_timestamp(as_timestamp(states.sensor.slaapkamer_mh_z19_co2_waarde.last_updated) | timestamp_local))/60)|round|int }}'
     co2_studeerkamer_lastupdate:
       friendly_name: Co2 sensor studeerkamer last updated
+      icon_template: 'mdi:clock-outline'
       unit_of_measurement: 'min'
       value_template: '{{ ((as_timestamp(strptime(states.sensor.date_time.state, "%Y-%m-%d, %H:%M")) - as_timestamp(as_timestamp(states.sensor.studeerkamer_mh_z19_co2_waarde.last_updated) | timestamp_local))/60)|round|int  }}'
     watermeter_lastupdate:
       friendly_name: Watermeter last updated
+      icon_template: 'mdi:clock-outline'
       unit_of_measurement: 'min'
       value_template: '{{ ((as_timestamp(strptime(states.sensor.date_time.state, "%Y-%m-%d, %H:%M")) - as_timestamp(as_timestamp(states.sensor.watermeter.last_updated) | timestamp_local))/60)|round|int }}'
     ventilator_snelheid_lastupdate:
       friendly_name: Ventilator snelheid last updated
+      icon_template: 'mdi:clock-outline'
       unit_of_measurement: 'min'
       value_template: '{{ ((as_timestamp(strptime(states.sensor.date_time.state, "%Y-%m-%d, %H:%M")) - as_timestamp(as_timestamp(states.sensor.ventilator_snelheid.last_updated) | timestamp_local))/60)|round|int }}'
-    weerhuis_temperatuur_lastupdate:
-      friendly_name: Weerhuis temperatuur last updated
-      unit_of_measurement: 'min'
-      value_template: '{{ ((as_timestamp(strptime(states.sensor.date_time.state, "%Y-%m-%d, %H:%M")) - as_timestamp(as_timestamp(states.sensor.weerhuis_temperatuur.last_updated) | timestamp_local))/60)|round|int }}'
 
 # Misc
 
