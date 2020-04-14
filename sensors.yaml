@@ -80,13 +80,6 @@
 #    - conductivity
 #    - battery
 
-  #- platform: template
-  #  sensors:
-  #    huiskamer_hum:
-  #      friendly_name: "Luchtvochtigheid huiskamer"
-  #      unit_of_measurement: '%'
-  #      value_template: "{{ states.sensor.sensebender_micro_1_2.state | int - 10 }}"
-
 - platform: template
   sensors:
     televisie:
