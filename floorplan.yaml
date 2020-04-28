@@ -26,6 +26,10 @@ groups:
       - sensor.studeerkamer_lywsdcgq_luchtvochtigheid
     text_template: '${entity.state ? entity.state : "na"}%'
 
+  - name: util
+    entities:
+      - sensor.ventilator_snelheid
+
   - name: lights
     entities:
       - light.bol_lamp
