@@ -2,28 +2,28 @@ television_on:
   alias: Television
   sequence:
   - service: remote.turn_on
-    entity_id: remote.huiskamer
+    entity_id: remote.harmony_hub
     data:
       activity: '11036639'
 jukebox_on:
   alias: Jukebox
   sequence:
   - service: remote.turn_on
-    entity_id: remote.huiskamer
+    entity_id: remote.harmony_hub
     data:
       activity: 23982026
 music_on:
   alias: Music
   sequence:
   - service: remote.turn_on
-    entity_id: remote.huiskamer
+    entity_id: remote.harmony_hub
     data:
       activity: '11036640'
 harmony_off:
   alias: Harmony off
   sequence:
   - service: remote.turn_on
-    entity_id: remote.huiskamer
+    entity_id: remote.harmony_hub
     data:
       activity: '-1'
 christmas_on:

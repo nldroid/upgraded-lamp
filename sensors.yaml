@@ -108,8 +108,8 @@
     huiskamer:
       icon_template: 'mdi:remote'
       value_template: >
-        {% if states.remote.huiskamer %}
-          {{ state_attr('remote.huiskamer','current_activity') }}
+        {% if states.remote.harmony_hub %}
+          {{ state_attr('remote.harmony_hub','current_activity') }}
         {% else %}
           Uit
         {% endif %}
