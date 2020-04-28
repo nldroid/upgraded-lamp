@@ -6,10 +6,10 @@ groups:
 
   - name: temp
     entities:
-      - sensor.sensebender_micro_1_1
-      - sensor.slaapkamer_bme280_temperatuur
-      - sensor.studeerkamer_bme280_temperatuur
-      - sensor.sensebender_micro_2_1
+      - sensor.woonkamer_lywsdcgq_temperatuur
+      - sensor.slaapkamer_lywsdcgq_temperatuur
+      - sensor.studeerkamer_lywsdcgq_temperatuur
+      - sensor.buiten_temperatuur
     text_template: '${entity.state ? entity.state : "na"}°C'
 
   - name: ppm
@@ -21,16 +21,17 @@ groups:
 
   - name: hum
     entities:
-      - sensor.woonkamer_bme280_luchtvochtigheid
-      - sensor.slaapkamer_bme280_luchtvochtigheid
-      - sensor.studeerkamer_bme280_luchtvochtigheid
+      - sensor.woonkamer_lywsdcgq_luchtvochtigheid
+      - sensor.slaapkamer_lywsdcgq_luchtvochtigheid
+      - sensor.studeerkamer_lywsdcgq_luchtvochtigheid
     text_template: '${entity.state ? entity.state : "na"}%'
 
   - name: lights
     entities:
-      - light.hue_ambiance_spot_1
-      - light.hue_white_lamp_1
-      - light.hue_white_lamp_2
+      - light.bol_lamp
+      - light.arch_lamp
+      - light.floor_lamp
+      - light.ikea_trio  
     states:
       - state: 'on'
         class: 'light-on'
@@ -41,9 +42,8 @@ groups:
 
   - name: switches
     entities:
-      - switch.fibaro_system_fgwpef_wall_plug_switch_2
-      - switch.aeotec_zw096_smart_switch_6_switch
-      - switch.lampjes_buiten_switch
+      - switch.coolcam_plug_1_relay
+      - switch.coolcam_plug_2_relay
     states:
       - state: 'on'
         class: 'light-on'
