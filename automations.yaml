@@ -348,7 +348,7 @@
   - service: fan.turn_off
     entity_id: fan.ventilatiesysteem
 - id: '1587124418465'
-  alias: Espressomachine uit na 30 minuten
+  alias: Espressomachine uit na 60 minuten
   description: ''
   trigger:
   - above: '10'
@@ -361,3 +361,49 @@
     domain: switch
     entity_id: switch.shelly_espressomachine_relay
     type: turn_off
+- id: '1588176327162'
+  alias: Fan hoog bij luchtvochtigheid
+  description: ''
+  trigger:
+  - above: 65
+    device_id: 87b3e3087067445f87541e9483e4eff5
+    domain: sensor
+    entity_id: sensor.badkamer_lywsdcgq_luchtvochtigheid
+    for:
+      hours: 0
+      minutes: 1
+      seconds: 0
+    platform: device
+    type: value
+  condition:
+  - condition: state
+    entity_id: sensor.ventilator_snelheid
+    state: Laag
+  action:
+  - data:
+      speed: high
+    entity_id: fan.ventilatiesysteem
+    service: fan.set_speed
+- id: '1588177066518'
+  alias: Fan laag bij luchtvochtigheid
+  description: ''
+  trigger:
+  - below: 65
+    device_id: 87b3e3087067445f87541e9483e4eff5
+    domain: sensor
+    entity_id: sensor.badkamer_lywsdcgq_luchtvochtigheid
+    for:
+      hours: 0
+      minutes: 1
+      seconds: 0
+    platform: device
+    type: value
+  condition:
+  - condition: state
+    entity_id: fan.ventilatiesysteem
+    state: Hoog
+  action:
+  - data:
+      speed: low
+    entity_id: fan.ventilatiesysteem
+    service: fan.set_speed
