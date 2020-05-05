@@ -12,6 +12,13 @@
       - group.weerhuis
 #      - group.ventilator
 #      - group.all_co2
+  living_room:
+    name: Living room
+    entities:
+      - light.arch_lamp
+      - light.bol_lamp
+      - light.ikea_trio
+      - switch.coolcam_plug_2_relay
 
   hallway:
     name: Hallway 
