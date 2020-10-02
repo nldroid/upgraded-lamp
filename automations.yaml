@@ -351,7 +351,7 @@
   alias: Espressomachine uit na 60 minuten
   description: ''
   trigger:
-  - above: '10'
+  - above: 10
     entity_id: sensor.shelly_espressomachine_power
     for: '1:00:00'
     platform: numeric_state
