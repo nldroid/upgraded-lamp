@@ -60,6 +60,9 @@ timer:
   zigbee_permit_join:
     name: Time remaining
     duration: 600
+  espressomachine:
+    name: Espresso machine shut off
+    duration: '00:45:00'
 
 logger:
   default: error

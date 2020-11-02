@@ -153,6 +153,7 @@
   action:
   - entity_id: group.woonkamer_lights
     service: homeassistant.toggle
+  mode: single
 - id: enable_zigbee_join
   alias: Enable Zigbee joining
   trigger:
@@ -234,6 +235,7 @@
     data_template:
       brightness: '{{ states("sensor.ikea_dimmer_brightness") | int }}'
     service: light.turn_on
+  mode: single
 - id: deur_op_slot
   alias: Deur op slot
   trigger:
@@ -348,19 +350,19 @@
   - service: fan.turn_off
     entity_id: fan.ventilatiesysteem
 - id: '1587124418465'
-  alias: Espressomachine uit na 60 minuten
+  alias: Espressomachine start timer na aanzetten
   description: ''
   trigger:
-  - above: 10
+  - above: '10'
     entity_id: sensor.shelly_espressomachine_power
-    for: '1:00:00'
+    for: 00:00:30
     platform: numeric_state
   condition: []
   action:
-  - device_id: 2a2f9f001f354cddbfed329473500f45
-    domain: switch
-    entity_id: switch.shelly_espressomachine_relay
-    type: turn_off
+  - service: timer.start
+    data: {}
+    entity_id: timer.espressomachine
+  mode: single
 - id: '1588176327162'
   alias: Fan hoog bij luchtvochtigheid
   description: ''
@@ -415,35 +417,72 @@
   trigger:
   - payload: 'on'
     platform: mqtt
-    topic: zigbee2mqtt/switch_espresso/click
+    topic: zigbee2mqtt/keuken_espresso/click
   condition: []
   action:
   - device_id: 2a2f9f001f354cddbfed329473500f45
     domain: switch
     entity_id: switch.shelly_espressomachine_relay
     type: turn_on
+  mode: single
 - id: '1590694661304'
   alias: Espresso power off
   description: ''
   trigger:
   - payload: 'off'
     platform: mqtt
-    topic: zigbee2mqtt/switch_espresso/click
+    topic: zigbee2mqtt/keuken_espresso/click
   condition: []
   action:
   - device_id: 2a2f9f001f354cddbfed329473500f45
     domain: switch
     entity_id: switch.shelly_espressomachine_relay
     type: turn_off
+  mode: single
 - id: '1591043939532'
   alias: Fan timer click
   description: ''
   trigger:
   - payload: 'on'
     platform: mqtt
-    topic: zigbee2mqtt/switch_toilet/click
+    topic: zigbee2mqtt/toilet/click
   action:
   - service: mqtt.publish
     data:
       topic: /ventilator/cmd
       payload: State 13
+  mode: single
+- id: '1604225166691'
+  alias: Espressomachine stop timer na uitzetten
+  description: ''
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.shelly_espressomachine_power
+    below: '1'
+    for: 00:01:00
+  condition:
+  - condition: not
+    conditions:
+    - condition: state
+      entity_id: timer.espressomachine
+      state: idle
+  action:
+  - service: timer.cancel
+    data: {}
+    entity_id: timer.espressomachine
+  mode: single
+- id: '1604225386704'
+  alias: Espressomachine zet uit na verstrijken timer
+  description: ''
+  trigger:
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.espressomachine
+  condition: []
+  action:
+  - type: turn_off
+    device_id: 2a2f9f001f354cddbfed329473500f45
+    entity_id: switch.shelly_espressomachine_relay
+    domain: switch
+  mode: single

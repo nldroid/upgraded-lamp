@@ -15,7 +15,7 @@
   living_room:
     name: Living room
     entities:
-      - light.arch_lamp
+      - light.woonkamer_arch_light
       - light.bol_lamp
       - light.ikea_trio
       - switch.coolcam_plug_2_relay
@@ -103,10 +103,10 @@
   woonkamer_lights:
     name: Woonkamer lichten  
     entities:
-      - light.arch_lamp
-      - light.bol_lamp
-      - switch.neo_coolcam_switch
-      - group.ikea_lamp
+      - light.woonkamer_arch_light
+      - light.woonkamer_bol_light
+      - switch.coolcam_plug_2_relay
+      - light.ikea_trio
 
   overige_lampen:
     name: Overige lampen
@@ -116,9 +116,9 @@
   ikea_lamp:
     name: Ikea lamp
     entities:
-      - light.ikea_lamp_1_light
-      - light.ikea_lamp_2_light
-      - light.ikea_lamp_3_light
+      - light.woonkamer_trio_1_light
+      - light.woonkamer_trio_2_light
+      - light.woonkamer_trio_3_light
 
   televisiekast:
     name: Televisiekast
