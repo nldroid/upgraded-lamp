@@ -1,1 +1,7 @@
-#Groups worden niet meer gebruikt
+woonkamer_lights:
+  name: Woonkamer lichten  
+  entities:
+    - light.arch_lamp
+    - light.bol_lamp
+    - switch.neo_coolcam_switch
+    - group.ikea_lamp
